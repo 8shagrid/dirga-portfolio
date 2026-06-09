@@ -61,7 +61,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Dirga Halim Susilo Portfolio",
+        alt: "Dirga Halim Susilo | Full-Stack Developer, AI Engineer & Data Specialist",
       },
     ],
   },
@@ -133,7 +133,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-ID"
       suppressHydrationWarning
       className={`${dmSans.variable} ${playfairDisplay.variable} ${notoSerifJP.variable} h-full antialiased`}
     >

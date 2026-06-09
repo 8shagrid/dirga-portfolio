@@ -1,104 +1,71 @@
-# Dirga Halim Susilo -- Portfolio
+# Dirga Halim Susilo — Portfolio
 
-[![Deploy](https://github.com/8shagrid/8shagrid.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/8shagrid/8shagrid.github.io/actions/workflows/deploy.yml)
+[![CI](https://github.com/8shagrid/8shagrid.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/8shagrid/8shagrid.github.io/actions/workflows/deploy.yml)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-Personal portfolio and professional landing page for **Dirga Halim Susilo** -- AI-Native Full-Stack Developer and Tech Entrepreneur based in Medan, Indonesia.
+Production-ready personal portfolio for **Dirga Halim Susilo** — Full-Stack Developer, AI Engineer, and Data Specialist based in Medan, Indonesia.
 
-## Overview
+**Live:** [dirgahalimsusilo.site](https://dirgahalimsusilo.site/)
 
-This portfolio showcases four live digital products, six technical projects spanning AI/ML and full-stack engineering, professional certifications, and career experience. The design follows a minimalist Samurai aesthetic with a dark color palette and sharp typography.
+## Highlights
 
-**Live:** [8shagrid.github.io](https://8shagrid.github.io/)
+- Product-focused landing page with live web platforms, ERP work, AI/data projects, experience, certifications, and contact flow
+- Responsive single-page experience with smooth anchor navigation
+- Light/dark mode with persisted theme preference
+- Centralized content management in `src/lib/data.ts`
+- SEO metadata, Open Graph image route, sitemap, robots, and JSON-LD structured data
+- Downloadable CV from `public/cv-dirga-halim-susilo.pdf`
 
-## Features
+## Tech Stack
 
-- Single-page application with smooth scroll navigation
-- Responsive across mobile, tablet, and desktop viewports
-- Scroll-triggered animations via Framer Motion
-- Downloadable CV PDF
-- Static export optimized for GitHub Pages
-
-## Technology
-
-| Category | Stack |
-|---|---|
-| Framework | Next.js 16 (App Router) |
-| Language | TypeScript |
-| Styling | Tailwind CSS 4 |
-| Animation | Framer Motion |
-| Icons | Lucide React |
-| Typography | Playfair Display, Noto Serif JP, DM Sans |
-| Hosting | Vercel (primary), GitHub Pages (mirror) |
+- **Framework:** Next.js 16 App Router
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4
+- **Animation:** Framer Motion
+- **Icons:** Lucide React, React Icons
+- **Hosting:** Vercel
 
 ## Project Structure
 
-```
+```txt
 src/
-  app/            # Next.js App Router pages and layout
-  components/     # Reusable UI components (11 components)
-  lib/            # Shared utilities and content data
-public/           # Static assets, CV PDF, screenshots
-.github/          # GitHub Actions deployment workflow
+  app/            Next.js App Router files, metadata, SEO routes
+  components/     Portfolio sections and reusable UI components
+  lib/            Central content data, animations, utilities
+public/           Static assets, screenshots, CV, favicons
+.github/          CI workflow
 ```
 
 ## Development
-
-### Prerequisites
-
-- Node.js 20 or later
-- npm
-
-### Setup
 
 ```bash
 npm install
 npm run dev
 ```
 
-The development server starts at `http://localhost:3000`.
+Open `http://localhost:3000`.
 
-### Build
+## Quality Checks
 
 ```bash
+npm run lint
 npm run build
 ```
 
-Outputs static files to the `out/` directory.
+## Content Updates
 
-### Content Management
+Most portfolio content lives in `src/lib/data.ts`:
 
-All portfolio content is centralized in `src/lib/data.ts`. Edit this single file to update:
-- Personal information and taglines
-- Product descriptions and tech stacks
-- Project listings
-- Skills, experience, education, and certifications
+- Hero title, tagline, stats, and location
+- Product/project descriptions and links
+- Skills, experience, education, certifications
+- Contact links and CV URL
 
 ## Deployment
 
-### Vercel (Recommended)
+The site is optimized for Vercel. Push to the connected GitHub repository and Vercel will build the Next.js app automatically.
 
-This project is optimized for [Vercel](https://vercel.com), the native hosting platform for Next.js.
+## Repository rename note
 
-1. Push to GitHub
-2. Import the repository in Vercel: `https://vercel.com/import`
-3. Vercel auto-detects Next.js and configures the build
-4. Deploy
-
-The `vercel.json` at the project root contains the framework preset.
-
-### GitHub Pages (Mirror)
-
-A static export workflow is maintained in `.github/workflows/deploy.yml` as a fallback. To enable:
-
-1. Restore `output: "export"` in `next.config.ts`
-2. Configure GitHub Pages source to "GitHub Actions"
-3. Push to `main`
-
-## License
-
-MIT (c) 2026 Dirga Halim Susilo
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This repository currently uses the GitHub Pages special name `8shagrid.github.io`. If the repo is renamed, GitHub Pages user-site behavior changes. Vercel deployments and the custom domain can still work, but GitHub Pages settings/badges should be updated after the rename.
