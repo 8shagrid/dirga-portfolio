@@ -6,14 +6,14 @@
 // --- Hero ---
 export const heroData = {
   name: "Dirga Halim Susilo",
-  title: "Full-Stack Developer, AI Engineer\n& Data Specialist",
+  title: "Full-Stack Developer & AI Engineer\nData-Driven Product Builder",
   tagline:
-    "I build production-ready web applications, ERP systems, data dashboards, and AI solutions that help businesses move faster and make better decisions.",
+    "I design, build, and ship web platforms, ERP systems, dashboards, and AI/data workflows that turn messy operations into useful digital products.",
   stats: [
     { label: "Live Products", value: "4" },
+    { label: "Projects Delivered", value: "25+" },
+    { label: "ERP Modules", value: "20+" },
     { label: "GPA", value: "3.77" },
-    { label: "Certifications", value: "6" },
-    { label: "ERP Modules Built", value: "20" },
   ],
   location: "Medan, Indonesia",
 };
@@ -112,19 +112,37 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "CNN Sign Language Translator",
+    title: "SIBI Sign Language Detection",
     type: "AI / Machine Learning",
     description:
-      "Aplikasi machine learning berbasis CNN untuk mengenali alfabet bahasa isyarat dari dataset MNIST. Proyek riset ini membuktikan akurasi tinggi pada mayoritas huruf dan menjadi fondasi pengembangan deteksi gerakan real-time.",
-    tech: ["Python", "TensorFlow", "CNN", "FastAPI", "React"],
+      "Computer-vision project untuk mendeteksi bahasa isyarat SIBI menggunakan MediaPipe, TensorFlow, data collection script, trained model, dan inference real-time. Dibangun sebagai bukti kemampuan ML dari data preparation sampai demo aplikasi.",
+    tech: ["Python", "TensorFlow", "MediaPipe", "OpenCV", "Jupyter Notebook"],
     link: "https://github.com/8shagrid/sibi-sign-language-detection",
     linkLabel: "View Repository",
   },
   {
-    title: "HR Analytics Dashboard",
-    type: "Data Visualization",
+    title: "Tokopedia Review Scraper",
+    type: "Data Engineering / Market Research",
     description:
-      "Dashboard analitik HR untuk memantau attrition rate, demografi, pendidikan, gender, dan kepuasan kerja. Dirancang agar tim HR lebih cepat membaca tren workforce dan mengurangi waktu pembuatan laporan hingga 40%.",
+      "Python scraper untuk mengumpulkan ulasan produk Tokopedia, membersihkan relative date, dan menyiapkan dataset review untuk sentiment analysis maupun riset pasar e-commerce.",
+    tech: ["Python", "Web Scraping", "Data Cleaning", "Sentiment Analysis"],
+    link: "https://github.com/8shagrid/tokopedia-review-scraper",
+    linkLabel: "View Repository",
+  },
+  {
+    title: "Crypto Market ETL Pipeline",
+    type: "Data Pipeline / Analytics",
+    description:
+      "ETL pipeline untuk mengambil data pasar crypto dari CoinGecko, menyimpannya ke PostgreSQL, dan menyiapkan fondasi data yang siap dipakai untuk dashboard, analitik, atau automasi monitoring market.",
+    tech: ["Python", "CoinGecko API", "PostgreSQL", "ETL", "Analytics"],
+    link: "https://github.com/8shagrid/etl-coingecko-pipeline",
+    linkLabel: "View Repository",
+  },
+  {
+    title: "HR Analytics Dashboard",
+    type: "Business Intelligence",
+    description:
+      "Dashboard analitik HR untuk memantau attrition rate, demografi, pendidikan, gender, dan kepuasan kerja. Dirancang agar tim HR lebih cepat membaca tren workforce dan membuat laporan yang lebih actionable.",
     tech: ["Excel", "Pivot Tables", "Data Analysis", "Interactive Dashboard"],
     link: "https://github.com/8shagrid/hr-analytics-dashboard-excel",
     linkLabel: "View Repository",
@@ -134,39 +152,18 @@ export const projects: Project[] = [
     type: "Data Visualization",
     description:
       "Dashboard visualisasi data kecelakaan jalan berbasis Excel yang merangkum tren bulanan, jenis jalan, kondisi cahaya, permukaan jalan, dan lokasi kejadian untuk membantu analisis risiko secara cepat.",
-    tech: [
-      "Excel",
-      "Data Visualization",
-      "Interactive Dashboard",
-      "Statistics",
-    ],
+    tech: ["Excel", "Data Visualization", "Interactive Dashboard", "Statistics"],
     link: "https://github.com/8shagrid/road-accident-dashboard-excel",
     linkLabel: "View Repository",
   },
   {
-    title: "Web Phishing Detection",
-    type: "AI / Cybersecurity",
+    title: "Coding Roadmap",
+    type: "Education / Developer Experience",
     description:
-      "Sistem deteksi website phishing berbasis machine learning dengan ekstraksi fitur URL dan integrasi model ke aplikasi Django. Dibangun untuk membantu identifikasi ancaman lebih cepat pada level aplikasi web.",
-    tech: ["Python", "Django", "Scikit-learn", "Feature Extraction", "SQLite"],
-    link: "https://github.com/8shagrid",
-    linkLabel: "GitHub Profile",
-  },
-  {
-    title: "AI Chat / RAG App",
-    type: "AI + Full-Stack",
-    description:
-      "Konsep aplikasi RAG untuk upload dokumen dan tanya jawab berbasis AI. Menggabungkan LLM, vector database, dan backend API agar jawaban lebih relevan terhadap konteks dokumen pengguna.",
-    tech: ["LangChain", "OpenAI", "Pinecone", "Next.js", "FastAPI"],
-    badge: "In Progress",
-  },
-  {
-    title: "MLOps Pipeline Demo",
-    type: "MLOps / DevOps",
-    description:
-      "Demo pipeline MLOps end-to-end untuk preprocessing data, training model, evaluasi, deployment, monitoring, dan CI/CD. Dirancang sebagai fondasi workflow machine learning yang lebih repeatable.",
-    tech: ["Docker", "GitHub Actions", "FastAPI", "Scikit-learn"],
-    badge: "Prototype",
+      "Interactive coding roadmap berbasis Next.js dan MDX untuk menyusun jalur belajar software development yang lebih terstruktur, mudah dinavigasi, dan siap dikembangkan sebagai learning product.",
+    tech: ["Next.js", "MDX", "TypeScript", "Education", "Developer Tools"],
+    link: "https://coding-roadmap-one.vercel.app",
+    linkLabel: "View Live Site",
   },
 ];
 

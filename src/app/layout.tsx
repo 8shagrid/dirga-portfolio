@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   title:
     "Dirga Halim Susilo | Full-Stack Developer, AI Engineer & Data Specialist",
   description:
-    "Portfolio Dirga Halim Susilo, Full-Stack Developer, AI Engineer, and Data Specialist based in Medan, Indonesia. Building web apps, ERP systems, dashboards, and AI solutions with Next.js, TypeScript, Python, and Supabase.",
+    "Portfolio Dirga Halim Susilo, a Full-Stack Developer and AI Engineer based in Medan, Indonesia. Explore production web platforms, ERP systems, dashboards, and AI/data projects built with Next.js, TypeScript, Python, Supabase, and PostgreSQL.",
   keywords: [
     "Dirga Halim Susilo",
     "Software Engineer",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Dirga Halim Susilo | Full-Stack Developer & AI Engineer",
     description:
-      "Explore web applications, ERP systems, data dashboards, and AI projects built by Dirga Halim Susilo.",
+      "Explore production web platforms, ERP systems, dashboards, and AI/data projects built by Dirga Halim Susilo.",
     type: "website",
     locale: "en_ID",
     siteName: "Dirga Halim Susilo",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Dirga Halim Susilo | Full-Stack Developer & AI Engineer",
     description:
-      "Portfolio of web applications, ERP systems, data dashboards, and AI projects.",
+      "Production web platforms, ERP systems, dashboards, and AI/data projects by Dirga Halim Susilo.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -93,6 +93,8 @@ const jsonLd = {
   "@type": "Person",
   name: "Dirga Halim Susilo",
   jobTitle: "Full-Stack Developer, AI Engineer & Data Specialist",
+  description:
+    "Product-minded engineer building web platforms, ERP systems, dashboards, and AI/data workflows for businesses and education products.",
   url: "https://dirgahalimsusilo.site",
   sameAs: [
     "https://github.com/8shagrid",
@@ -106,6 +108,8 @@ const jsonLd = {
     "TypeScript",
     "Python",
     "Machine Learning",
+    "ERP Systems",
+    "Business Intelligence",
   ],
 };
 

@@ -8,7 +8,7 @@ const stats = [
   { value: "3+", label: "Years Experience" },
   { value: "25+", label: "Projects Delivered" },
   { value: "4", label: "Products Launched" },
-  { value: "1K+", label: "Users Served" },
+  { value: "20+", label: "ERP Modules" },
 ];
 
 // Decorative terminal window for the right column
@@ -198,7 +198,7 @@ export default function Hero() {
             >
               <Circle size={8} className="text-take fill-take" />
               <span className="text-[11px] text-take/80 font-medium tracking-wide">
-                Open for freelance, product, and AI projects
+                Available for product engineering, ERP, dashboard, and AI/data projects
               </span>
             </motion.div>
 
@@ -225,7 +225,7 @@ export default function Hero() {
                 <span className="text-beni">✦</span> Full-Stack Developer & AI
                 Engineer
                 <span className="text-hai/50 mx-2">|</span>
-                Data-Driven Product Builder
+                Product-Minded Builder
               </div>
             </motion.div>
 
