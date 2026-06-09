@@ -12,7 +12,7 @@ import { viewportOnce } from "@/lib/animations";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
-  const [formStatus, setFormStatus] = useState<"idle" | "sent">("idle");
+  const [formStatus, setFormStatus] = useState<"idle" | "ready">("idle");
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleCopyEmail = async () => {
@@ -34,7 +34,7 @@ export default function Contact() {
       `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     );
     window.location.href = `mailto:${contactData.email}?subject=${subject}&body=${body}`;
-    setFormStatus("sent");
+    setFormStatus("ready");
     form.reset();
     setTimeout(() => setFormStatus("idle"), 3000);
   };
@@ -50,8 +50,8 @@ export default function Contact() {
     {
       icon: Phone,
       label: "Phone",
-      value: contactData.phone,
-      href: `https://wa.me/${contactData.phone.replace(/\+/g, "")}`,
+      value: contactData.phoneDisplay,
+      href: `https://wa.me/${contactData.whatsappPhone}`,
     },
     {
       icon: FaLinkedinIn,
@@ -87,22 +87,22 @@ export default function Contact() {
           {contactLinks.map((link, index) => (
             <motion.a
               key={link.label}
-              href={link.action ? undefined : link.href}
-              target={link.action ? undefined : "_blank"}
-              rel="noopener noreferrer"
+              href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
               onClick={link.action}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportOnce}
               transition={{ duration: 0.4, delay: index * 0.06 }}
-              className="group flex items-center gap-4 p-4 bg-tetsu/50 border border-susu/10 rounded-sm hover:border-beni/20 transition-all duration-300 cursor-pointer"
+              className="group flex items-center gap-4 p-4 bg-tetsu/50 border border-susu/20 rounded-sm hover:border-beni/40 transition-all duration-300"
             >
               <link.icon
                 size={18}
                 className="text-hai/50 group-hover:text-beni transition-colors shrink-0"
               />
               <div className="min-w-0">
-                <p className="text-[10px] text-hai/50 uppercase tracking-wider">
+                <p className="text-[10px] text-hai/80 uppercase tracking-wider">
                   {link.label}
                 </p>
                 <p className="text-sm text-shiro group-hover:text-beni transition-colors truncate">
@@ -135,53 +135,69 @@ export default function Contact() {
           transition={{ duration: 0.4, delay: 0.3 }}
           className="bg-tetsu/50 border border-susu/10 rounded-sm p-5 flex flex-col gap-4"
         >
-          <p className="text-xs text-hai/60 uppercase tracking-wider">
-            Quick Message
-          </p>
+          <div>
+            <p className="text-xs text-hai/80 uppercase tracking-wider">
+              Quick Message
+            </p>
+            <p className="mt-1 text-xs text-hai/70">
+              This opens your email app with a pre-filled message.
+            </p>
+          </div>
 
-          <input
-            type="text"
-            name="name"
-            required
-            placeholder="Your Name"
-            className="w-full bg-sumi border border-susu/20 rounded-sm px-3 py-2.5 text-sm text-shiro placeholder:text-hai/40 focus:outline-none focus:border-beni/50 transition-colors"
-          />
+          <label className="flex flex-col gap-1.5 text-xs text-hai/85">
+            Name <span className="sr-only">required</span>
+            <input
+              type="text"
+              name="name"
+              required
+              autoComplete="name"
+              placeholder="Your name"
+              className="w-full bg-sumi border border-susu/35 rounded-sm px-3 py-2.5 text-sm text-shiro placeholder:text-hai/60 focus:outline-none focus:border-beni/70 transition-colors"
+            />
+          </label>
 
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="Your Email"
-            className="w-full bg-sumi border border-susu/20 rounded-sm px-3 py-2.5 text-sm text-shiro placeholder:text-hai/40 focus:outline-none focus:border-beni/50 transition-colors"
-          />
+          <label className="flex flex-col gap-1.5 text-xs text-hai/85">
+            Email <span className="sr-only">required</span>
+            <input
+              type="email"
+              name="email"
+              required
+              autoComplete="email"
+              placeholder="your@email.com"
+              className="w-full bg-sumi border border-susu/35 rounded-sm px-3 py-2.5 text-sm text-shiro placeholder:text-hai/60 focus:outline-none focus:border-beni/70 transition-colors"
+            />
+          </label>
 
-          <textarea
-            name="message"
-            required
-            rows={4}
-            placeholder="Your Message..."
-            className="w-full bg-sumi border border-susu/20 rounded-sm px-3 py-2.5 text-sm text-shiro placeholder:text-hai/40 focus:outline-none focus:border-beni/50 transition-colors resize-none"
-          />
+          <label className="flex flex-col gap-1.5 text-xs text-hai/85">
+            Message <span className="sr-only">required</span>
+            <textarea
+              name="message"
+              required
+              rows={4}
+              placeholder="Tell me about your project..."
+              className="w-full bg-sumi border border-susu/35 rounded-sm px-3 py-2.5 text-sm text-shiro placeholder:text-hai/60 focus:outline-none focus:border-beni/70 transition-colors resize-none"
+            />
+          </label>
 
           <button
             type="submit"
             className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-beni text-shiro font-medium text-sm rounded-sm hover:bg-beni-light transition-colors duration-200"
           >
-            {formStatus === "sent" ? (
+            {formStatus === "ready" ? (
               <>
                 <Check size={14} />
-                Sent!
+                Email App Opened
               </>
             ) : (
               <>
                 <Send size={14} />
-                Send Message
+                Open Email App
               </>
             )}
           </button>
 
-          <p className="text-[10px] text-hai/40 text-center">
-            Opens your email client to send
+          <p className="text-[10px] text-hai/65 text-center">
+            Your browser may ask which email app to use.
           </p>
         </motion.form>
       </div>

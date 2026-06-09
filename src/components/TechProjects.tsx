@@ -41,22 +41,22 @@ export default function TechProjects() {
                   <h3 className="text-sm font-semibold text-shiro">
                     {project.title}
                   </h3>
-                  {project.comingSoon && (
+                  {project.badge && (
                     <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 bg-kin/10 text-kin border border-kin/20 rounded-sm">
                       <Clock size={10} />
-                      Coming Soon
+                      {project.badge}
                     </span>
                   )}
                 </div>
-                <p className="text-xs text-hai mb-2">{project.type}</p>
-                <p className="text-sm text-hai leading-relaxed mb-3">
+                <p className="text-xs text-hai/85 mb-2">{project.type}</p>
+                <p className="text-sm text-hai/90 leading-relaxed mb-3">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-1.5">
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="text-[10px] px-2 py-0.5 bg-sumi border border-susu/30 text-hai rounded-sm"
+                      className="text-[10px] px-2 py-0.5 bg-sumi border border-susu/40 text-hai/90 rounded-sm"
                     >
                       {t}
                     </span>
@@ -72,7 +72,7 @@ export default function TechProjects() {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="shrink-0 inline-flex items-center gap-1.5 text-xs text-beni hover:text-beni-light transition-colors"
+                      className="shrink-0 inline-flex items-center gap-1.5 text-xs font-medium text-beni hover:text-beni-light underline-offset-4 hover:underline transition-colors"
                     >
                       {project.linkLabel}
                       <LinkIcon size={11} />

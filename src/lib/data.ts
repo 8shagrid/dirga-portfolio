@@ -46,7 +46,7 @@ export const products: Product[] = [
       "Recharts",
     ],
     link: "https://siaptempur.id",
-    linkLabel: "Visit Platform",
+    linkLabel: "View Live Platform",
     image: "/screenshots/siaptempur.png",
   },
   {
@@ -65,7 +65,7 @@ export const products: Product[] = [
       "KaTeX",
     ],
     link: "https://pejuangkampus.co.id",
-    linkLabel: "Visit Platform",
+    linkLabel: "View Live Platform",
     image: "/screenshots/pejuangkampus.png",
   },
   {
@@ -84,7 +84,7 @@ export const products: Product[] = [
       "Playwright",
     ],
     link: "#contact",
-    linkLabel: "Request Demo",
+    linkLabel: "Request ERP Demo",
     image: "/screenshots/seraya-erp.png",
   },
   {
@@ -94,7 +94,7 @@ export const products: Product[] = [
       "Website studio undangan digital dan fisik untuk pernikahan, ulang tahun, aqiqah, dan khitanan. Menawarkan 150+ tema siap pakai, proses pemesanan yang jelas, dan pengalaman klien dengan rating 4.9.",
     tech: ["HTML5", "CSS3", "JavaScript", "Lucide Icons", "Vercel"],
     link: "https://seraya.my.id",
-    linkLabel: "Visit Website",
+    linkLabel: "View Live Website",
     image: "/screenshots/seraya.png",
   },
 ];
@@ -107,7 +107,7 @@ export interface Project {
   tech: string[];
   link?: string;
   linkLabel?: string;
-  comingSoon?: boolean;
+  badge?: string;
 }
 
 export const projects: Project[] = [
@@ -117,8 +117,8 @@ export const projects: Project[] = [
     description:
       "Aplikasi machine learning berbasis CNN untuk mengenali alfabet bahasa isyarat dari dataset MNIST. Proyek riset ini membuktikan akurasi tinggi pada mayoritas huruf dan menjadi fondasi pengembangan deteksi gerakan real-time.",
     tech: ["Python", "TensorFlow", "CNN", "FastAPI", "React"],
-    link: "https://github.com/8shagrid",
-    linkLabel: "GitHub",
+    link: "https://github.com/8shagrid/sibi-sign-language-detection",
+    linkLabel: "View Repository",
   },
   {
     title: "HR Analytics Dashboard",
@@ -127,7 +127,7 @@ export const projects: Project[] = [
       "Dashboard analitik HR untuk memantau attrition rate, demografi, pendidikan, gender, dan kepuasan kerja. Dirancang agar tim HR lebih cepat membaca tren workforce dan mengurangi waktu pembuatan laporan hingga 40%.",
     tech: ["Excel", "Pivot Tables", "Data Analysis", "Interactive Dashboard"],
     link: "https://github.com/8shagrid/hr-analytics-dashboard-excel",
-    linkLabel: "GitHub",
+    linkLabel: "View Repository",
   },
   {
     title: "Road Accident Dashboard",
@@ -141,7 +141,7 @@ export const projects: Project[] = [
       "Statistics",
     ],
     link: "https://github.com/8shagrid/road-accident-dashboard-excel",
-    linkLabel: "GitHub",
+    linkLabel: "View Repository",
   },
   {
     title: "Web Phishing Detection",
@@ -150,7 +150,7 @@ export const projects: Project[] = [
       "Sistem deteksi website phishing berbasis machine learning dengan ekstraksi fitur URL dan integrasi model ke aplikasi Django. Dibangun untuk membantu identifikasi ancaman lebih cepat pada level aplikasi web.",
     tech: ["Python", "Django", "Scikit-learn", "Feature Extraction", "SQLite"],
     link: "https://github.com/8shagrid",
-    linkLabel: "GitHub",
+    linkLabel: "GitHub Profile",
   },
   {
     title: "AI Chat / RAG App",
@@ -158,7 +158,7 @@ export const projects: Project[] = [
     description:
       "Konsep aplikasi RAG untuk upload dokumen dan tanya jawab berbasis AI. Menggabungkan LLM, vector database, dan backend API agar jawaban lebih relevan terhadap konteks dokumen pengguna.",
     tech: ["LangChain", "OpenAI", "Pinecone", "Next.js", "FastAPI"],
-    comingSoon: true,
+    badge: "In Progress",
   },
   {
     title: "MLOps Pipeline Demo",
@@ -166,7 +166,7 @@ export const projects: Project[] = [
     description:
       "Demo pipeline MLOps end-to-end untuk preprocessing data, training model, evaluasi, deployment, monitoring, dan CI/CD. Dirancang sebagai fondasi workflow machine learning yang lebih repeatable.",
     tech: ["Docker", "GitHub Actions", "FastAPI", "Scikit-learn"],
-    comingSoon: true,
+    badge: "Prototype",
   },
 ];
 
@@ -338,7 +338,9 @@ export const certifications = [
 // --- Contact ---
 export const contactData = {
   email: "dirgahalimsusilo@gmail.com",
-  phone: "+6282367453590",
+  phone: "+628****3590",
+  phoneDisplay: "+62 823-6745-3590",
+  whatsappPhone: "6282367453590",
   linkedin: "linkedin.com/in/dirgahalimsusilo",
   github: "github.com/8shagrid",
   website: "dirgahalimsusilo.site",

@@ -33,11 +33,11 @@ export default function Footer() {
           <span className="text-sm font-bold text-shiro tracking-wide">
             DIRGA<span className="text-beni">.</span>
           </span>
-          <span className="text-xs text-hai/50">Halim Susilo</span>
+          <span className="text-xs text-hai/75">Halim Susilo</span>
         </div>
 
         {/* Copyright */}
-        <p className="text-xs text-hai/50">
+        <p className="text-xs text-hai/75">
           © {new Date().getFullYear()} Dirga Halim Susilo. Full-stack, AI, and
           data portfolio.
         </p>
@@ -53,7 +53,7 @@ export default function Footer() {
                 link.href.startsWith("http") ? "noopener noreferrer" : undefined
               }
               className={cn(
-                "text-hai/50 transition-colors",
+                "inline-flex size-10 items-center justify-center text-hai/75 transition-colors",
                 link.hoverClassName,
               )}
               aria-label={link.label}

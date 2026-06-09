@@ -31,7 +31,13 @@ export default function FeaturedProducts() {
             <div className="absolute top-0 left-0 right-0 z-10 h-[2px] bg-beni scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
 
             {/* Product Screenshot */}
-            <div className="relative aspect-16/10 overflow-hidden bg-sumi">
+            <a
+              href={product.link}
+              target={product.link.startsWith("http") ? "_blank" : undefined}
+              rel={product.link.startsWith("http") ? "noopener noreferrer" : undefined}
+              className="relative block aspect-16/10 overflow-hidden bg-sumi"
+              aria-label={`${product.linkLabel} — ${product.title}`}
+            >
               <Image
                 src={product.image}
                 alt={product.title}
@@ -42,7 +48,7 @@ export default function FeaturedProducts() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-linear-to-t from-tetsu via-tetsu/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
+            </a>
 
             <div className="p-6">
               {/* Header */}
@@ -58,12 +64,12 @@ export default function FeaturedProducts() {
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-hai mt-1">{product.role}</p>
+                  <p className="text-xs text-hai/85 mt-1">{product.role}</p>
                 </div>
               </div>
 
               {/* Description */}
-              <p className="text-sm text-hai leading-relaxed mb-4">
+              <p className="text-sm text-hai/90 leading-relaxed mb-4">
                 {product.description}
               </p>
 
@@ -72,7 +78,7 @@ export default function FeaturedProducts() {
                 {product.tech.map((t) => (
                   <span
                     key={t}
-                    className="text-[10px] px-2 py-0.5 bg-sumi border border-susu/30 text-hai rounded-sm"
+                    className="text-[10px] px-2 py-0.5 bg-sumi border border-susu/40 text-hai/90 rounded-sm"
                   >
                     {t}
                   </span>
@@ -84,7 +90,7 @@ export default function FeaturedProducts() {
                 href={product.link}
                 target={product.link.startsWith("http") ? "_blank" : undefined}
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-beni hover:text-beni-light transition-colors group/link"
+                className="inline-flex items-center gap-2 px-3 py-2 border border-beni/45 text-xs font-medium text-beni hover:bg-beni hover:text-shiro transition-colors rounded-sm group/link"
               >
                 {product.linkLabel}
                 {product.link.startsWith("http") ? (
