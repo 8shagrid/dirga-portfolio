@@ -70,9 +70,43 @@ html.light .text-take  { color: #264d2b !important; }
 html.light .text-beni  { color: #9c1c1c !important; }
 html.light .border-susu { border-color: #a69985 !important; }
 
-/* bg-sumi as child-nested surface (for thesis box etc.) */
-html.light [class*="bg-sumi\/"] { background-color: #ede5d4 !important; }
-html.light [class*="bg-tetsu\/"] { background-color: #f8f6f2 !important; }
+/* Opacity utility overrides for light mode.
+   Tailwind v4 compiles classes like text-hai/70 and border-susu/30 to static
+   color-mix/lab values, so the variable overrides above do not catch them.
+   These keep the soft paper theme but make small text, cards, chips, and
+   controls readable in light mode. */
+html.light [class*="text-hai/"] { color: #4a4037 !important; }
+html.light [class*="text-shiro/"] { color: #1c1815 !important; }
+html.light [class*="text-susu/"] { color: #6d5f4f !important; }
+html.light [class*="text-beni/"] { color: #9c1c1c !important; }
+html.light [class*="text-kin/"] { color: #7a530f !important; }
+html.light [class*="text-take/"] { color: #234c2b !important; }
+html.light .text-code-green { color: #1f6b2b !important; }
+html.light .text-code-purple { color: #5e2fa6 !important; }
+
+html.light [class*="border-susu/"] { border-color: rgba(92, 78, 63, 0.34) !important; }
+html.light [class*="border-beni/"] { border-color: rgba(156, 28, 28, 0.58) !important; }
+html.light [class*="border-take/"] { border-color: rgba(38, 77, 43, 0.34) !important; }
+html.light [class*="border-kin/"] { border-color: rgba(122, 83, 15, 0.34) !important; }
+
+/* bg-sumi as child-nested surface (for thesis box, chips, form fields, etc.) */
+html.light [class*="bg-sumi/"] { background-color: #ede5d4 !important; }
+html.light [class*="bg-tetsu/"] { background-color: #f8f6f2 !important; }
+html.light [class*="bg-take/"] { background-color: #e4f0e2 !important; }
+html.light [class*="bg-kin/"] { background-color: #f4ead1 !important; }
+html.light [class*="bg-beni/"] { background-color: rgba(156, 28, 28, 0.08) !important; }
+
+/* Stronger light-mode surfaces for key UI areas */
+html.light section .bg-tetsu {
+  border-color: rgba(92, 78, 63, 0.24) !important;
+  box-shadow: 0 14px 40px rgba(44, 35, 25, 0.07);
+}
+html.light nav {
+  border-color: rgba(92, 78, 63, 0.22) !important;
+}
+html.light footer {
+  border-color: rgba(92, 78, 63, 0.18) !important;
+}
 
 /* Hero name gradient — use solid text in light mode */
 html.light .hero-name { background: none !important; color: #0e0d0f !important; -webkit-text-fill-color: #0e0d0f !important; }
