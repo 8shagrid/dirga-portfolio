@@ -6,14 +6,16 @@ import SectionHeader from "./SectionHeader";
 import Section from "./Section";
 import { experiences } from "@/lib/data";
 import { viewportOnce } from "@/lib/animations";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Experience() {
+  const { t } = useLanguage();
   return (
     <Section id="experience">
       <SectionHeader
-        label="Experience"
-        title="Professional Experience"
-        description="Hands-on experience across freelance software development, data science, HR analytics, and academic research."
+        label={t("Experience")}
+        title={t("Data Experience Across Business & Research")}
+        description={t("Hands-on work translating business questions into cleaned data, analysis, dashboards, and stakeholder-ready findings.")}
       />
 
       <div className="relative max-w-5xl">
@@ -35,7 +37,7 @@ export default function Experience() {
 
               <div className="md:pt-1">
                 <span className="inline-flex rounded-sm border border-beni/20 bg-beni/10 px-2.5 py-1 font-mono text-[11px] font-medium text-beni">
-                  {exp.period}
+                  {t(exp.period)}
                 </span>
               </div>
 
@@ -45,7 +47,7 @@ export default function Experience() {
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                   <div className="min-w-0">
                     <h3 className="text-base font-semibold leading-snug text-shiro md:text-lg">
-                      {exp.role}
+                      {t(exp.role)}
                     </h3>
                     <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-hai">
                       <span className="inline-flex items-center gap-1.5">
@@ -54,7 +56,7 @@ export default function Experience() {
                       </span>
                       <span className="inline-flex items-center gap-1.5">
                         <MapPin size={13} className="text-beni/70" />
-                        {exp.location}
+                        {t(exp.location)}
                       </span>
                     </div>
                   </div>
@@ -74,7 +76,7 @@ export default function Experience() {
                         size={15}
                         className="mt-0.5 shrink-0 text-take"
                       />
-                      <span>{detail}</span>
+                      <span>{t(detail)}</span>
                     </li>
                   ))}
                 </ul>

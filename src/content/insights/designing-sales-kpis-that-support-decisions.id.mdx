@@ -1,0 +1,153 @@
+## Dashboard penjualan harus menjelaskan perubahan, bukan hanya menampilkan total
+
+Pendapatan biasanya menjadi angka pertama pada dashboard penjualan. Angka ini penting, tetapi total pendapatan saja tidak dapat menjelaskan apakah kinerja membaik, apakah pertumbuhan berasal dari volume atau harga, produk mana yang mengubah bauran, atau apakah hasil bergantung pada sedikit kontributor.
+
+Dataset proyek ini merepresentasikan penjualan sebesar $31,48 miliar dan 1,05 juta unit, dengan Mei sebagai bulan penjualan tertinggi. Angka tersebut menjelaskan skala dan waktu. Nilai analitisnya muncul ketika kita menjelaskan hubungan di antara keduanya.
+
+Pertanyaan desain utamanya adalah: **apa yang perlu diketahui manajemen untuk menjaga, meningkatkan, atau mengulangi kinerja penjualan?**
+
+## Mulai dengan kontrak KPI
+
+Sebelum membangun visual, setiap KPI membutuhkan kontrak singkat: definisi, perhitungan, grain data, filter, pemilik, dan keputusan yang didukung.
+
+Contohnya:
+
+- **Pendapatan penjualan:** total nilai penjualan yang diakui dalam periode terpilih
+- **Unit terjual:** jumlah unit selesai dalam transaksi yang sama
+- **Nilai jual rata-rata:** pendapatan penjualan dibagi unit terjual
+- **Komisi:** komisi terhitung yang berkaitan dengan transaksi
+- **Tingkat komisi:** komisi dibagi pendapatan penjualan
+
+Definisi tepatnya harus mengikuti proses bisnis. “Penjualan” dapat berarti pesanan dibuat, invoice diterbitkan, pembayaran diterima, atau pendapatan diakui. Jika setiap tim memakai definisi berbeda, dashboard justru dapat menambah perdebatan.
+
+Sebelum menghitung angka utama, saya akan memvalidasi identitas transaksi, duplikasi, pesanan dibatalkan, retur, tanggal kosong, konsistensi mata uang, serta hubungan produk, tenaga penjualan, dan transaksi.
+
+## Uraikan pendapatan menjadi faktor pendorong
+
+Pendapatan dapat dinyatakan secara sederhana:
+
+**Pendapatan = unit terjual × nilai jual rata-rata**
+
+Penguraian ini mengubah perubahan pendapatan menjadi dua jalur investigasi. Jika pendapatan meningkat:
+
+- Apakah organisasi menjual lebih banyak unit?
+- Apakah nilai jual rata-rata meningkat?
+- Apakah keduanya berubah?
+- Apakah bauran bergeser ke produk bernilai lebih tinggi?
+
+Pertumbuhan pendapatan yang sama dapat mencerminkan kondisi bisnis berbeda. Pertumbuhan berbasis volume mungkin membutuhkan persediaan dan kapasitas operasional. Pertumbuhan berbasis harga atau bauran membutuhkan evaluasi margin, diskon, dan retensi pelanggan.
+
+Karena itu, KPI eksekutif harus mengarah secara alami menuju tampilan diagnostik.
+
+## Tambahkan konteks melalui perbandingan
+
+Sebuah angka menjadi informatif ketika dibandingkan dengan konteks relevan. Berdasarkan ketersediaan data, saya akan menyertakan:
+
+- Bulan sebelumnya
+- Bulan yang sama tahun sebelumnya
+- Anggaran atau target
+- Rata-rata bergerak
+- Kontribusi terhadap total
+
+Setiap perbandingan menjawab pertanyaan berbeda. Perbandingan bulanan menyoroti perubahan terbaru, tetapi dapat terdistorsi musim. Perbandingan tahunan lebih baik untuk pola musiman berulang, tetapi dapat menyembunyikan titik balik terbaru. Selisih target mengukur eksekusi terhadap rencana, sedangkan kontribusi menunjukkan segmen yang menjelaskan total.
+
+Untuk puncak penjualan pada Mei, pertanyaan berikutnya adalah:
+
+1. Apakah Mei selalu kuat atau hanya luar biasa pada satu tahun?
+2. Produk mana yang menjelaskan selisih tersebut?
+3. Apakah unit dan nilai jual rata-rata bergerak searah?
+4. Apakah kinerja tersebar luas atau terkonsentrasi?
+
+Tanpa pemeriksaan ini, “Mei adalah bulan terbaik” masih berupa observasi, bukan wawasan.
+
+## Pisahkan kinerja produk dari bauran produk
+
+Analisis produk tidak boleh berhenti pada peringkat pendapatan. Produk dapat berada di peringkat tinggi karena menjual banyak unit, memiliki nilai jual tinggi, atau berada dalam pasar yang besar.
+
+Saya akan memeriksa:
+
+- Kontribusi pendapatan
+- Kontribusi unit
+- Nilai jual rata-rata
+- Tren dari waktu ke waktu
+- Proporsi terhadap total penjualan
+- Kontribusi margin jika biaya tersedia
+
+Bauran penting karena total kinerja dapat meningkat meskipun beberapa produk menurun, selama pertumbuhan kategori lain cukup besar. Sebaliknya, total yang kuat dapat menyembunyikan melemahnya permintaan pada produk strategis.
+
+Tampilan produk yang berguna menunjukkan kontribusi saat ini sekaligus arah perubahannya.
+
+## Evaluasi tenaga penjualan secara adil
+
+Peringkat tenaga penjualan mudah dibaca dan mudah disalahgunakan. Pendapatan mentah dapat menguntungkan orang dengan wilayah lebih besar, akun mapan, produk lebih mahal, atau alokasi lead lebih baik.
+
+Evaluasi yang lebih adil perlu mempertimbangkan:
+
+- Pendapatan dan unit
+- Pencapaian target
+- Pertumbuhan dalam portofolio yang ditugaskan
+- Nilai jual rata-rata atau perilaku diskon
+- Retensi pelanggan
+- Margin jika tersedia
+- Peluang wilayah dan produk
+
+Dashboard proyek ini dapat mengidentifikasi kontribusi dan peringkat, tetapi tidak boleh dianggap sebagai sistem penilaian karyawan lengkap. Fungsinya adalah menunjukkan lokasi perbedaan kinerja dan konteks yang perlu ditinjau manajer.
+
+> Peringkat menunjukkan siapa yang berada di atas berdasarkan satu perhitungan. Ia tidak otomatis menunjukkan siapa yang berkinerja terbaik dalam kondisi sebanding.
+
+## Bangun jalur baca dari hasil menuju penyebab
+
+Saya menyusun dashboard dalam beberapa lapisan:
+
+1. **Hasil:** penjualan, unit, dan komisi menetapkan skala.
+2. **Perubahan:** tren bulanan menunjukkan kapan kinerja berubah.
+3. **Komposisi:** analisis produk menunjukkan apa yang berkontribusi.
+4. **Kontributor:** analisis tenaga penjualan menunjukkan siapa yang berkontribusi.
+5. **Eksplorasi:** filter memungkinkan manajemen menguji periode, produk, atau kontributor.
+
+Urutan ini mengikuti percakapan eksekutif: apa yang terjadi, kapan terjadi, apa pendorongnya, dan di mana respons diperlukan?
+
+Konsistensi visual juga penting. Pendapatan, unit, dan komisi tidak boleh memakai grafik serupa jika skalanya memiliki makna berbeda. Label harus menyatakan unit dengan jelas, dan singkatan seperti miliar atau juta tidak boleh membuat pembaca menebak.
+
+## Terjemahkan temuan menjadi tindakan
+
+Dashboard sebaiknya menawarkan playbook keputusan:
+
+- **Pendapatan naik, unit naik, nilai jual stabil:** pastikan kapasitas persediaan dan fulfillment.
+- **Pendapatan naik, unit turun, nilai jual naik:** periksa apakah harga atau bauran mendorong pertumbuhan dan apakah permintaan berkelanjutan.
+- **Pendapatan turun, unit stabil:** tinjau diskon, bauran, dan realisasi harga.
+- **Satu produk mendorong sebagian besar pertumbuhan:** lindungi pasokan sekaligus evaluasi risiko konsentrasi.
+- **Satu tenaga penjualan mendorong pertumbuhan:** identifikasi praktik yang dapat ditransfer dan konsentrasi akun.
+- **Komisi naik lebih cepat daripada pendapatan:** tinjau aturan komisi dan bauran produk.
+
+Semua ini merupakan hipotesis awal, bukan kesimpulan otomatis. Setiap kondisi harus mengarah pada query atau percakapan operasional yang lebih fokus.
+
+## Keterbatasan yang memengaruhi interpretasi
+
+Dataset belum tentu memuat target, harga pokok, retur, biaya akuisisi pelanggan, potensi wilayah, atau riwayat pelanggan lengkap. Tanpa data biaya, penjualan tinggi tidak dapat diartikan sebagai profit tinggi. Tanpa target, peringkat menggambarkan kontribusi, bukan pencapaian. Tanpa riwayat pelanggan, dashboard tidak dapat membedakan pertumbuhan berulang dari pembelian satu kali.
+
+Keterbatasan lain:
+
+- Perlakuan mata uang atau pajak mungkin berbeda antartransaksi.
+- Retur dan pembatalan dapat tercatat setelah penjualan awal.
+- Bulan puncak mungkin dipengaruhi cutoff pelaporan.
+- Komisi dapat dihitung pada tahap berbeda dari pendapatan.
+- Nama produk dan tenaga penjualan dapat berubah dari waktu ke waktu.
+
+Kamus data dan log pembaruan perlu mendampingi dashboard agar pengguna memahami isi setiap ukuran.
+
+## Versi berikutnya yang lebih kuat
+
+Iterasi berikutnya perlu menambahkan margin kotor, selisih target, segmen pelanggan, perilaku pembelian ulang, retur, diskon, dan potensi wilayah. Analisis kontribusi sederhana kemudian dapat menjelaskan seberapa besar perubahan periode berasal dari volume, nilai jual, dan bauran.
+
+Alert juga dapat bermanfaat, tetapi hanya setelah definisi stabil. Contohnya, manajemen dapat meninjau produk ketika pendapatan jatuh di bawah baseline bergerak sementara persediaan masih tinggi. Alert menjadi bernilai karena menghubungkan kondisi terukur dengan respons operasional tertentu.
+
+## Kesimpulan
+
+Desain KPI penjualan yang baik tidak memaksimalkan jumlah kartu dalam dashboard. Ia membangun rantai bukti:
+
+**hasil → perbandingan → pendorong → konteks → tindakan**
+
+Pendapatan menetapkan hasil. Unit dan nilai jual menjelaskan mekanismenya. Waktu, bauran produk, dan analisis kontributor memberikan konteks. Definisi dan keterbatasan yang jelas menjaga kredibilitas narasi.
+
+Itulah perbedaan antara melaporkan penjualan dan mendukung keputusan penjualan.

@@ -1,7 +1,10 @@
+"use client";
+
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { contactData } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/i18n";
 
 const socialLinks = [
   {
@@ -25,6 +28,7 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const { language } = useLanguage();
   return (
     <footer className="py-12 px-6 border-t border-susu/10">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
@@ -38,8 +42,10 @@ export default function Footer() {
 
         {/* Copyright */}
         <p className="text-xs text-hai/75">
-          © {new Date().getFullYear()} Dirga Halim Susilo. Full-stack, AI, and
-          data portfolio.
+          © {new Date().getFullYear()} Dirga Halim Susilo.{" "}
+          {language === "id"
+            ? "Portfolio analitik data dan business intelligence."
+            : "Data analytics and business intelligence portfolio."}
         </p>
 
         {/* Social */}

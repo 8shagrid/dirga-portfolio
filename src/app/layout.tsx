@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Playfair_Display, Noto_Serif_JP } from "next/font/google";
+import { LanguageProvider } from "@/lib/i18n";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -31,28 +32,28 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dirgahalimsusilo.site"),
-  title:
-    "Dirga Halim Susilo | Full-Stack Developer, AI Engineer & Data Specialist",
+  title: "Dirga Halim Susilo | Data Analyst & Business Intelligence",
   description:
-    "Portfolio Dirga Halim Susilo, a Full-Stack Developer and AI Engineer based in Medan, Indonesia. Explore production web platforms, ERP systems, dashboards, and AI/data projects built with Next.js, TypeScript, Python, Supabase, and PostgreSQL.",
+    "Data Analyst portfolio of Dirga Halim Susilo, featuring interactive Excel dashboards, SQL and Python analytics, ETL workflows, workforce analysis, sales reporting, and business intelligence projects.",
   keywords: [
     "Dirga Halim Susilo",
-    "Software Engineer",
-    "Full Stack Developer",
-    "AI Engineer",
-    "Data Scientist",
-    "Next.js",
-    "TypeScript",
-    "Portfolio",
-    "ERP Developer",
     "Data Analyst",
-    "Medan Developer",
+    "Business Intelligence Analyst",
+    "Data Analyst Portfolio",
+    "Excel Dashboard",
+    "Power BI",
+    "Tableau",
+    "SQL",
+    "Python",
+    "Data Visualization",
+    "Business Intelligence",
+    "Medan Data Analyst",
   ],
   authors: [{ name: "Dirga Halim Susilo" }],
   openGraph: {
-    title: "Dirga Halim Susilo | Full-Stack Developer & AI Engineer",
+    title: "Dirga Halim Susilo | Data Analyst & Business Intelligence",
     description:
-      "Explore production web platforms, ERP systems, dashboards, and AI/data projects built by Dirga Halim Susilo.",
+      "Interactive dashboards, practical analytics, and data projects built to support clearer business decisions.",
     type: "website",
     locale: "en_ID",
     siteName: "Dirga Halim Susilo",
@@ -61,15 +62,15 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Dirga Halim Susilo | Full-Stack Developer, AI Engineer & Data Specialist",
+        alt: "Dirga Halim Susilo | Data Analyst & Business Intelligence portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dirga Halim Susilo | Full-Stack Developer & AI Engineer",
+    title: "Dirga Halim Susilo | Data Analyst & Business Intelligence",
     description:
-      "Production web platforms, ERP systems, dashboards, and AI/data projects by Dirga Halim Susilo.",
+      "Interactive dashboards, practical analytics, and data projects built to support clearer business decisions.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -92,30 +93,81 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Dirga Halim Susilo",
-  jobTitle: "Full-Stack Developer, AI Engineer & Data Specialist",
+  jobTitle: "Data Analyst & Business Intelligence Analyst",
   description:
-    "Product-minded engineer building web platforms, ERP systems, dashboards, and AI/data workflows for businesses and education products.",
+    "Data analyst who transforms raw business data into interactive dashboards, clear insights, and practical recommendations.",
   url: "https://dirgahalimsusilo.site",
   sameAs: [
     "https://github.com/8shagrid",
     "https://linkedin.com/in/dirgahalimsusilo",
   ],
   knowsAbout: [
-    "Artificial Intelligence",
-    "Data Science",
-    "Full-Stack Development",
-    "Next.js",
-    "TypeScript",
-    "Python",
-    "Machine Learning",
-    "ERP Systems",
+    "Data Analysis",
     "Business Intelligence",
+    "SQL",
+    "Python",
+    "Microsoft Excel",
+    "Power BI",
+    "Tableau",
+    "Data Visualization",
+    "Statistics",
   ],
 };
 
 const themeInitializer = `
 (() => {
   try {
+    // Some VPN extensions inject bis_* and processed_* attributes before
+    // React hydrates. Remove only those extension-owned attributes while the
+    // initial document is being parsed so the server and client trees match.
+    const extensionAttributePattern = /^(?:bis_|processed_[0-9a-f-]+$)/;
+    const cleanExtensionAttributes = (root) => {
+      const cleanElement = (element) => {
+        for (const attribute of Array.from(element.attributes || [])) {
+          if (extensionAttributePattern.test(attribute.name)) {
+            element.removeAttribute(attribute.name);
+          }
+        }
+      };
+
+      if (root instanceof Element) cleanElement(root);
+      if (root.querySelectorAll) {
+        for (const element of root.querySelectorAll("*")) cleanElement(element);
+      }
+    };
+
+    cleanExtensionAttributes(document.documentElement);
+
+    const extensionObserver = new MutationObserver((records) => {
+      for (const record of records) {
+        if (record.type === "attributes" && record.target instanceof Element) {
+          const attributeName = record.attributeName;
+          if (attributeName && extensionAttributePattern.test(attributeName)) {
+            record.target.removeAttribute(attributeName);
+          }
+        }
+
+        for (const node of record.addedNodes) {
+          if (node instanceof Element) cleanExtensionAttributes(node);
+        }
+      }
+    });
+
+    extensionObserver.observe(document.documentElement, {
+      attributes: true,
+      childList: true,
+      subtree: true,
+    });
+
+    window.addEventListener(
+      "DOMContentLoaded",
+      () => {
+        cleanExtensionAttributes(document.documentElement);
+        window.requestAnimationFrame(() => extensionObserver.disconnect());
+      },
+      { once: true },
+    );
+
     const storageKey = "portfolio-theme";
     const storedTheme = window.localStorage.getItem(storageKey);
     const preferredTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
@@ -144,11 +196,15 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitializer }} />
         <script
+          suppressHydrationWarning
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full bg-sumi text-shiro font-body">
+      <body
+        suppressHydrationWarning
+        className="min-h-full bg-sumi text-shiro font-body"
+      >
         {/* Skip to main content */}
         <a
           href="#main-content"
@@ -156,7 +212,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );
