@@ -1,0 +1,153 @@
+## Angka total yang besar adalah titik awal, bukan diagnosis keselamatan
+
+Dataset keselamatan jalan dalam proyek ini merepresentasikan 417.883 korban, termasuk 7.135 korban meninggal. Dataset juga menunjukkan bahwa 61% korban tercatat berada di wilayah perkotaan.
+
+Angka tersebut menggambarkan skala, keparahan, dan distribusi. Namun, angka itu belum menjelaskan jalan mana yang lebih berisiko, mengapa kecelakaan terjadi, atau intervensi apa yang dapat mencegah dampak terbesar.
+
+Pertanyaan analitisnya adalah: **bagaimana korban yang tercatat dapat disusun menjadi prioritas yang dapat dipertanggungjawabkan tanpa mengklaim lebih dari kemampuan data?**
+
+## Perjelas unit analisis
+
+Dataset keselamatan jalan dapat berisi kecelakaan, kendaraan, pengemudi, atau korban. Semua ini merupakan unit yang berbeda:
+
+- Satu kecelakaan dapat melibatkan beberapa kendaraan.
+- Satu kendaraan dapat membawa beberapa orang.
+- Satu kecelakaan dapat menghasilkan beberapa korban dengan tingkat keparahan berbeda.
+
+Jika dashboard menghitung baris korban, hasilnya harus diberi label “korban”, bukan “kecelakaan”. Jika tidak, satu kejadian dengan banyak korban dapat disalahartikan sebagai beberapa kecelakaan terpisah.
+
+Sebelum analisis, saya akan memvalidasi:
+
+- Identitas catatan yang unik
+- Hubungan antara data kecelakaan, kendaraan, dan korban
+- Kategori keparahan dan nilai kosong
+- Konsistensi tanggal dan waktu
+- Klasifikasi jenis jalan dan lokasi
+- Catatan duplikat atau yang diperbarui
+
+Perbedaan ini memengaruhi setiap KPI dan harus didokumentasikan dalam kamus data.
+
+## Utamakan keparahan sebelum frekuensi
+
+Total korban menggambarkan besarnya beban yang tercatat, tetapi tingkat keparahan mengubah makna kebijakan. Korban meninggal, luka serius, dan luka ringan harus terlihat terpisah karena intervensi yang mengurangi dampak berat tetap bernilai meskipun jumlah kejadian berubah perlahan.
+
+Dua ukuran yang berguna:
+
+**Proporsi keparahan = korban dalam kategori tertentu ÷ seluruh korban**
+
+**Proporsi fatal = korban meninggal ÷ seluruh korban**
+
+Proporsi fatal pada dataset ini sekitar 1,7%. Angka ini bukan peluang seorang pengguna jalan meninggal karena dataset tidak merepresentasikan seluruh paparan perjalanan. Angka tersebut hanya menjelaskan komposisi korban tercatat.
+
+Saya juga akan menghindari penggabungan tingkat keparahan menjadi skor arbitrer kecuali pembobotannya memiliki alasan kebijakan yang jelas. Skor dapat menyederhanakan peringkat, tetapi dapat menyembunyikan jumlah nyata korban meninggal dan luka serius.
+
+## Distribusi tidak sama dengan risiko
+
+Dashboard menunjukkan 61% korban berada di wilayah perkotaan. Kesalahan umum adalah menyimpulkan jalan perkotaan lebih berbahaya.
+
+Klaim tersebut membutuhkan denominator paparan. Wilayah perkotaan mungkin memiliki lebih banyak penduduk, perjalanan, persimpangan, pejalan kaki, kendaraan, dan insiden tercatat. Untuk memperkirakan risiko relatif, kita membutuhkan ukuran seperti:
+
+- Kilometer perjalanan kendaraan
+- Jumlah perjalanan
+- Volume lalu lintas
+- Populasi
+- Panjang jalan
+- Paparan pejalan kaki atau pesepeda
+
+Tanpa paparan, 61% harus disebut sebagai **proporsi korban tercatat di wilayah perkotaan**, bukan tingkat risiko perkotaan.
+
+> Jumlah menunjukkan lokasi konsentrasi dampak tercatat. Tingkat menunjukkan dampak relatif terhadap paparan. Dashboard yang bertanggung jawab tidak boleh mencampurkan keduanya.
+
+## Gabungkan kondisi secara hati-hati
+
+Jenis jalan, pencahayaan, kondisi permukaan, dan lokasi membantu menyusun investigasi. Namun kategorinya sering tumpang tindih dengan volume lalu lintas dan waktu.
+
+Contohnya, lebih banyak korban mungkin terjadi pada siang hari karena lebih banyak perjalanan dilakukan saat terang. Korban pada jalan basah mungkin lebih sedikit hanya karena kondisi basah lebih jarang terjadi. Jumlah lebih rendah tidak otomatis berarti kondisi lebih aman.
+
+Saya akan memeriksa:
+
+- Jumlah dan keparahan korban berdasarkan jenis jalan
+- Kondisi terang dan gelap yang dipisahkan menurut keparahan
+- Permukaan kering dan basah
+- Pola perkotaan dan pedesaan
+- Persimpangan atau geometri jalan jika tersedia
+
+Temuan deskriptif yang kuat biasanya berasal dari irisan beberapa dimensi dengan volume memadai, misalnya konsentrasi korban berat yang berulang pada kombinasi jenis jalan dan pencahayaan tertentu. Meski demikian, hasil tersebut menunjukkan area investigasi, bukan membuktikan penyebab.
+
+## Gunakan waktu untuk membedakan pola dan anomali
+
+Tren bulanan dapat menunjukkan musim, lonjakan tidak biasa, atau perubahan struktural. Tugas pertama adalah memeriksa apakah pola berulang antar­tahun.
+
+Evaluasi waktu yang berguna menanyakan:
+
+1. Apakah bulan yang sama tetap tinggi pada beberapa tahun?
+2. Apakah proses pelaporan berubah?
+3. Apakah ada cuaca, mobilitas, atau peristiwa publik yang tidak biasa?
+4. Apakah kenaikan tersebar atau terkonsentrasi pada satu tingkat keparahan atau lokasi?
+5. Apakah pola bertahan setelah mempertimbangkan paparan?
+
+Satu lonjakan dapat berarti masalah keselamatan nyata, backlog pelaporan, atau variasi acak. Rata-rata bergerak membantu menunjukkan arah dasar, sedangkan perbandingan tahunan membantu mengendalikan musim berulang.
+
+Filter perlu mendukung perbandingan tersebut tanpa mendorong pengguna memilih segmen terlalu sempit yang menghasilkan kesimpulan tidak stabil.
+
+## Prioritaskan dengan lebih dari satu dimensi
+
+Prioritas keselamatan publik perlu menyeimbangkan sedikitnya empat pertimbangan:
+
+- **Keparahan:** seberapa serius hasilnya?
+- **Volume:** berapa banyak korban tercatat?
+- **Konsistensi:** apakah pola berulang?
+- **Kemungkinan tindakan:** apakah ada intervensi yang dapat dievaluasi?
+
+Hal ini menghasilkan matriks prioritas yang lebih berguna:
+
+- **Keparahan tinggi, volume tinggi, berulang:** investigasi terperinci segera.
+- **Keparahan tinggi, volume rendah:** tinjauan kasus dan asesmen infrastruktur.
+- **Keparahan rendah, volume tinggi:** peluang pencegahan dan manajemen lalu lintas.
+- **Lonjakan satu kali:** validasi data dan konteks peristiwa sebelum intervensi.
+
+Tujuannya bukan membuat peringkat otomatis, melainkan memperjelas alasan di balik alokasi sumber daya.
+
+## Hubungkan pola dengan intervensi
+
+Pola berbeda membutuhkan bukti berbeda:
+
+- Keparahan pada malam hari dapat mengarah pada evaluasi pencahayaan, visibilitas, kecepatan, dan penegakan.
+- Pola permukaan basah dapat mengarah pada analisis drainase, kondisi permukaan, ban, dan kecepatan.
+- Konsentrasi perkotaan dapat membutuhkan data persimpangan, pejalan kaki, pesepeda, dan arus lalu lintas.
+- Keparahan pedesaan dapat membutuhkan analisis waktu respons, kecepatan, geometri jalan, dan jarak menuju layanan kesehatan.
+- Puncak bulanan berulang dapat membutuhkan data cuaca, volume perjalanan, atau peristiwa.
+
+Setiap intervensi harus memiliki desain pengukuran sebelum dan sesudah. Jika sebuah persimpangan mendapat pencahayaan baru, bandingkan periode setara, tingkat keparahan, paparan lalu lintas, dan kemungkinan perpindahan masalah ke lokasi sekitar, bukan sekadar melihat apakah bulan berikutnya memiliki lebih sedikit korban.
+
+## Kualitas data dan komunikasi etis
+
+Data keselamatan jalan dapat dipengaruhi under-reporting, klasifikasi keparahan yang tidak konsisten, perubahan batas wilayah, koordinat hilang, serta perbedaan pencatatan kepolisian dan rumah sakit. Pengguna jalan paling rentan juga dapat terwakili secara berbeda antar­sistem.
+
+Dashboard harus memisahkan dengan jelas:
+
+- Fakta yang dicatat langsung dalam dataset
+- Pola yang dihitung dari catatan tersebut
+- Hipotesis yang membutuhkan bukti tambahan
+- Rekomendasi berdasarkan pertimbangan operasional
+
+Bahasa sangat penting. “Korban terkonsentrasi pada kondisi X” dapat dipertanggungjawabkan. “Kondisi X menyebabkan korban” tidak dapat dinyatakan kecuali desain penelitian mendukung inferensi kausal.
+
+## Versi berikutnya yang lebih kuat
+
+Iterasi berikutnya perlu menambahkan ukuran paparan, koordinat geografis, identitas tingkat kecelakaan, lingkungan kecepatan, jenis persimpangan, cuaca, tipe kendaraan, dan kategori pengguna jalan. Pemetaan cluster korban berat kemudian dapat mendukung investigasi tingkat lokasi.
+
+Jika paparan tersedia, dashboard dapat membandingkan tingkat korban dan bukan hanya jumlah. Ketidakpastian statistik juga perlu ditampilkan untuk wilayah kecil atau hasil langka agar pengambil keputusan tidak bereaksi berlebihan terhadap peringkat yang tidak stabil.
+
+## Kesimpulan
+
+Nilai dashboard keselamatan jalan bukan sekadar kemampuannya menampilkan total korban yang besar. Nilainya berasal dari disiplin untuk:
+
+1. menentukan unit analisis yang benar,
+2. memisahkan frekuensi dari keparahan,
+3. membedakan distribusi dari risiko yang disesuaikan terhadap paparan,
+4. menguji apakah pola berulang,
+5. menyampaikan ketidakpastian, dan
+6. menghubungkan prioritas dengan intervensi yang dapat dievaluasi.
+
+Analisis keselamatan publik yang bertanggung jawab membuat bukti lebih mudah ditindaklanjuti tanpa membuat bukti tersebut terdengar lebih kuat daripada kenyataannya.

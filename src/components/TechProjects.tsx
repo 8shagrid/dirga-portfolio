@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Clock } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 import SectionHeader from "./SectionHeader";
 import Section from "./Section";
 import { projects } from "@/lib/data";
 import { viewportOnce } from "@/lib/animations";
+import { useLanguage } from "@/lib/i18n";
 
 function getLinkIcon(url: string) {
   if (url.includes("github.com")) return SiGithub;
@@ -14,12 +15,13 @@ function getLinkIcon(url: string) {
 }
 
 export default function TechProjects() {
+  const { t } = useLanguage();
   return (
     <Section id="projects">
       <SectionHeader
-        label="Tech Projects"
-        title="AI, Data & Engineering Projects"
-        description="Applied machine learning, analytics dashboards, and full-stack experiments focused on practical business and research outcomes."
+        label={t("Supporting Data Projects")}
+        title={t("Collection, Pipelines & Machine Learning")}
+        description={t("Additional projects that demonstrate how I collect, prepare, store, and model data before it reaches an analysis or dashboard.")}
       />
 
       <div className="space-y-3">
@@ -41,16 +43,10 @@ export default function TechProjects() {
                   <h3 className="text-sm font-semibold text-shiro">
                     {project.title}
                   </h3>
-                  {project.badge && (
-                    <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 bg-kin/10 text-kin border border-kin/20 rounded-sm">
-                      <Clock size={10} />
-                      {project.badge}
-                    </span>
-                  )}
                 </div>
-                <p className="text-xs text-hai/85 mb-2">{project.type}</p>
+                <p className="text-xs text-hai/85 mb-2">{t(project.type)}</p>
                 <p className="text-sm text-hai/90 leading-relaxed mb-3">
-                  {project.description}
+                  {t(project.description)}
                 </p>
                 <div className="flex flex-wrap gap-1.5">
                   {project.tech.map((t) => (
@@ -74,7 +70,7 @@ export default function TechProjects() {
                       rel="noopener noreferrer"
                       className="shrink-0 inline-flex items-center gap-1.5 text-xs font-medium text-beni hover:text-beni-light underline-offset-4 hover:underline transition-colors"
                     >
-                      {project.linkLabel}
+                      {t(project.linkLabel ?? "")}
                       <LinkIcon size={11} />
                     </a>
                   );

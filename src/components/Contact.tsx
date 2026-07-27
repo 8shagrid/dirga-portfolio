@@ -9,8 +9,10 @@ import { SiGithub } from "react-icons/si";
 import { FaLinkedinIn } from "react-icons/fa";
 import { useState, useRef, type FormEvent } from "react";
 import { viewportOnce } from "@/lib/animations";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Contact() {
+  const { t, language } = useLanguage();
   const [copied, setCopied] = useState(false);
   const [formStatus, setFormStatus] = useState<"idle" | "ready">("idle");
   const formRef = useRef<HTMLFormElement>(null);
@@ -29,7 +31,11 @@ export default function Contact() {
     const message = (form.elements.namedItem("message") as HTMLTextAreaElement)
       .value;
 
-    const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+    const subject = encodeURIComponent(
+      language === "id"
+        ? `Peluang Data Analyst — ${name}`
+        : `Data Analyst Opportunity — ${name}`,
+    );
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     );
@@ -76,9 +82,9 @@ export default function Contact() {
   return (
     <Section id="contact">
       <SectionHeader
-        label="Contact"
-        title="Build Something Useful"
-        description="Available for freelance projects, AI implementation, dashboard development, ERP systems, and full-time software engineering roles."
+        label={t("Availability")}
+        title={t("Let’s Discuss a Data Role")}
+        description={t("Open to Data Analyst and Business Intelligence opportunities where clear analysis, practical dashboards, and business communication matter.")}
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -103,7 +109,7 @@ export default function Contact() {
               />
               <div className="min-w-0">
                 <p className="text-[10px] text-hai/80 uppercase tracking-wider">
-                  {link.label}
+                  {t(link.label)}
                 </p>
                 <p className="text-sm text-shiro group-hover:text-beni transition-colors truncate">
                   {link.value}
@@ -137,27 +143,27 @@ export default function Contact() {
         >
           <div>
             <p className="text-xs text-hai/80 uppercase tracking-wider">
-              Quick Message
+              {t("Introduce the opportunity")}
             </p>
             <p className="mt-1 text-xs text-hai/70">
-              This opens your email app with a pre-filled message.
+              {t("Share the role or analytics challenge. This opens a prepared email draft.")}
             </p>
           </div>
 
           <label className="flex flex-col gap-1.5 text-xs text-hai/85">
-            Name <span className="sr-only">required</span>
+            {t("Name")} <span className="sr-only">{t("required")}</span>
             <input
               type="text"
               name="name"
               required
               autoComplete="name"
-              placeholder="Your name"
+              placeholder={t("Your name")}
               className="w-full bg-sumi border border-susu/35 rounded-sm px-3 py-2.5 text-sm text-shiro placeholder:text-hai/60 focus:outline-none focus:border-beni/70 transition-colors"
             />
           </label>
 
           <label className="flex flex-col gap-1.5 text-xs text-hai/85">
-            Email <span className="sr-only">required</span>
+            Email <span className="sr-only">{t("required")}</span>
             <input
               type="email"
               name="email"
@@ -169,12 +175,12 @@ export default function Contact() {
           </label>
 
           <label className="flex flex-col gap-1.5 text-xs text-hai/85">
-            Message <span className="sr-only">required</span>
+            {t("Message")} <span className="sr-only">{t("required")}</span>
             <textarea
               name="message"
               required
               rows={4}
-              placeholder="Tell me about your project..."
+              placeholder={t("Share the role, team, or analytics challenge...")}
               className="w-full bg-sumi border border-susu/35 rounded-sm px-3 py-2.5 text-sm text-shiro placeholder:text-hai/60 focus:outline-none focus:border-beni/70 transition-colors resize-none"
             />
           </label>
@@ -186,18 +192,18 @@ export default function Contact() {
             {formStatus === "ready" ? (
               <>
                 <Check size={14} />
-                Email App Opened
+                {t("Email App Opened")}
               </>
             ) : (
               <>
                 <Send size={14} />
-                Open Email App
+                {t("Prepare Email")}
               </>
             )}
           </button>
 
           <p className="text-[10px] text-hai/65 text-center">
-            Your browser may ask which email app to use.
+            {t("Your browser may ask which email app to use.")}
           </p>
         </motion.form>
       </div>

@@ -7,17 +7,19 @@ import SectionHeader from "./SectionHeader";
 import Section from "./Section";
 import { products } from "@/lib/data";
 import { viewportOnce } from "@/lib/animations";
+import { useLanguage } from "@/lib/i18n";
 
 export default function FeaturedProducts() {
+  const { t } = useLanguage();
   return (
     <Section id="products" bordered={false}>
       <SectionHeader
-        label="Featured Products"
-        title="Production-Ready Digital Products"
-        description="A selection of web platforms, ERP systems, and digital businesses I built from idea to launch."
+        label={t("Product & Systems Experience")}
+        title={t("Data-Enabled Products in Production")}
+        description={t("Beyond standalone dashboards, I have designed the data models, reporting flows, and operational views behind live digital products.")}
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {products.map((product, index) => (
           <motion.div
             key={product.title}
@@ -50,7 +52,7 @@ export default function FeaturedProducts() {
               <div className="absolute inset-0 bg-linear-to-t from-tetsu via-tetsu/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </a>
 
-            <div className="p-6">
+            <div className="flex h-full flex-col p-6">
               {/* Header */}
               <div className="flex items-start justify-between mb-3">
                 <div>
@@ -58,20 +60,24 @@ export default function FeaturedProducts() {
                     <h3 className="text-lg font-bold text-shiro group-hover:text-beni transition-colors duration-200">
                       {product.title}
                     </h3>
-                    {product.badge && (
-                      <span className="text-[10px] px-2 py-0.5 bg-kin/10 text-kin border border-kin/20 rounded-sm font-medium">
-                        {product.badge}
-                      </span>
-                    )}
                   </div>
-                  <p className="text-xs text-hai/85 mt-1">{product.role}</p>
+                  <p className="text-xs text-hai/85 mt-1">{t(product.role)}</p>
                 </div>
               </div>
 
               {/* Description */}
               <p className="text-sm text-hai/90 leading-relaxed mb-4">
-                {product.description}
+                {t(product.description)}
               </p>
+
+              <div className="mb-4 rounded-sm border border-kin/20 bg-kin/5 p-3">
+                <p className="mb-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-kin">
+                  {t("Analytics contribution")}
+                </p>
+                <p className="text-xs leading-relaxed text-hai">
+                  {t(product.analyticsAngle)}
+                </p>
+              </div>
 
               {/* Tech Stack */}
               <div className="flex flex-wrap gap-1.5 mb-5">
@@ -90,9 +96,9 @@ export default function FeaturedProducts() {
                 href={product.link}
                 target={product.link.startsWith("http") ? "_blank" : undefined}
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-2 border border-beni/45 text-xs font-medium text-beni hover:bg-beni hover:text-shiro transition-colors rounded-sm group/link"
+                className="mt-auto inline-flex w-fit items-center gap-2 rounded-sm border border-beni/45 px-3 py-2 text-xs font-medium text-beni transition-colors hover:bg-beni hover:text-shiro group/link"
               >
-                {product.linkLabel}
+                {t(product.linkLabel)}
                 {product.link.startsWith("http") ? (
                   <ExternalLink
                     size={12}

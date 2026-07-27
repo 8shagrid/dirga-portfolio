@@ -1,161 +1,112 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown, MapPin, Circle } from "lucide-react";
-import { heroData } from "@/lib/data";
+import {
+  ArrowRight,
+  BarChart3,
+  CheckCircle2,
+  ChevronDown,
+  Circle,
+  Database,
+  FileSearch,
+  MapPin,
+  Presentation,
+} from "lucide-react";
+import { cvData, heroData } from "@/lib/data";
+import { useLanguage } from "@/lib/i18n";
 
-const stats = [
-  { value: "3+", label: "Years Experience" },
-  { value: "25+", label: "Projects Delivered" },
-  { value: "4", label: "Products Launched" },
-  { value: "20+", label: "ERP Modules" },
+const workflow = [
+  {
+    icon: FileSearch,
+    label: "Ask",
+    value: "Define the business question",
+  },
+  {
+    icon: Database,
+    label: "Prepare",
+    value: "Clean and structure the data",
+  },
+  {
+    icon: BarChart3,
+    label: "Analyze",
+    value: "Find patterns and validate insights",
+  },
+  {
+    icon: Presentation,
+    label: "Explain",
+    value: "Build a decision-ready story",
+  },
 ];
 
-// Decorative terminal window for the right column
-function CodeVisual() {
-  const lines = [
-    {
-      indent: 0,
-      keyword: "const",
-      text: " developer",
-      kwColor: "text-code-purple",
-      textColor: "text-shiro/60",
-    },
-    {
-      indent: 1,
-      keyword: "",
-      text: "name:",
-      kwColor: "",
-      textColor: "text-shiro/80",
-    },
-    {
-      indent: 2,
-      keyword: "",
-      text: '"Dirga Halim Susilo",',
-      kwColor: "",
-      textColor: "text-code-green",
-    },
-    {
-      indent: 1,
-      keyword: "",
-      text: "stack:",
-      kwColor: "",
-      textColor: "text-shiro/80",
-    },
-    {
-      indent: 2,
-      keyword: "",
-      text: '["Next.js", "TypeScript",',
-      kwColor: "",
-      textColor: "text-code-green",
-    },
-    {
-      indent: 2,
-      keyword: "",
-      text: ' "Python", "Supabase",',
-      kwColor: "",
-      textColor: "text-code-green",
-    },
-    {
-      indent: 2,
-      keyword: "",
-      text: ' "TensorFlow", "Prisma"],',
-      kwColor: "",
-      textColor: "text-code-green",
-    },
-    {
-      indent: 1,
-      keyword: "",
-      text: "role:",
-      kwColor: "",
-      textColor: "text-shiro/80",
-    },
-    {
-      indent: 2,
-      keyword: "",
-      text: '"Full-Stack & AI Engineer",',
-      kwColor: "",
-      textColor: "text-code-green",
-    },
-    {
-      indent: 1,
-      keyword: "",
-      text: "status:",
-      kwColor: "",
-      textColor: "text-shiro/80",
-    },
-    {
-      indent: 2,
-      keyword: "",
-      text: '"available"',
-      kwColor: "",
-      textColor: "text-code-green",
-    },
-    {
-      indent: 0,
-      keyword: "};",
-      text: "",
-      kwColor: "text-code-purple",
-      textColor: "",
-    },
-  ];
-
+function AnalysisVisual() {
+  const { t } = useLanguage();
   return (
     <motion.div
       initial={{ opacity: 0, x: 30 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.7, delay: 0.4 }}
-      className="relative w-full max-w-sm mx-auto"
+      className="relative mx-auto w-full max-w-sm"
     >
-      {/* Glow behind the card */}
-      <div className="absolute -inset-px bg-linear-to-br from-beni/20 via-kin/10 to-transparent rounded-lg blur-sm" />
+      <div className="absolute -inset-px rounded-lg bg-linear-to-br from-beni/20 via-kin/10 to-transparent blur-sm" />
 
-      <div className="relative bg-sumi border border-susu/40 rounded-lg overflow-hidden shadow-2xl">
-        {/* Title bar */}
-        <div className="flex items-center gap-2 px-4 py-2.5 bg-tetsu border-b border-susu/30">
-          <div className="flex gap-1.5">
-            <div className="w-2.5 h-2.5 rounded-full bg-beni/50" />
-            <div className="w-2.5 h-2.5 rounded-full bg-kin/50" />
-            <div className="w-2.5 h-2.5 rounded-full bg-take/50" />
+      <div className="relative overflow-hidden rounded-lg border border-susu/40 bg-tetsu shadow-2xl">
+        <div className="flex items-center justify-between border-b border-susu/30 bg-sumi px-4 py-3">
+          <div className="flex items-center gap-2">
+            <div className="h-2.5 w-2.5 rounded-full bg-beni/55" />
+            <div className="h-2.5 w-2.5 rounded-full bg-kin/55" />
+            <div className="h-2.5 w-2.5 rounded-full bg-take/55" />
           </div>
-          <span className="text-[10px] text-hai/40 ml-2 font-mono tracking-wider">
-            developer.ts
+          <span className="font-mono text-[10px] tracking-wider text-hai/60">
+            analytics_workflow
           </span>
         </div>
 
-        {/* Code body */}
-        <div className="px-5 py-4 font-mono text-xs md:text-[13px] leading-[1.8]">
-          {lines.map((line, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -8 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: 0.75 + i * 0.07 }}
-              className="flex"
-            >
-              <span className="text-susu/30 shrink-0 mr-2 select-none">
-                {String(i + 1).padStart(2, " ")}
-              </span>
-              <span className="text-susu/20 shrink-0 mr-1 select-none">│</span>
-              <span style={{ paddingLeft: `${line.indent * 16}px` }}>
-                {line.keyword && (
-                  <span className={line.kwColor}>{line.keyword}</span>
-                )}
-                <span className={line.textColor}>{line.text}</span>
-              </span>
-              {i === lines.length - 1 && (
-                <motion.span
-                  animate={{ opacity: [1, 1, 0, 0] }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 1.5,
-                    times: [0, 0.5, 0.5, 1],
-                  }}
-                  className="inline-block h-[18px] w-2 bg-shiro/75 ml-1 translate-y-0.5 align-middle"
+        <div className="p-5">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-beni">
+            {t("From raw data to action")}
+          </p>
+          <p className="mt-2 font-heading text-xl font-bold leading-snug text-shiro">
+            {t("Analysis is useful when it helps someone decide.")}
+          </p>
+
+          <div className="mt-5 grid gap-2.5">
+            {workflow.map((step, index) => (
+              <motion.div
+                key={step.label}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35, delay: 0.65 + index * 0.08 }}
+                className="flex items-center gap-3 rounded-sm border border-susu/30 bg-sumi px-3 py-2.5"
+              >
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-sm border border-beni/20 bg-beni/10 text-beni">
+                  <step.icon size={15} />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-[10px] font-semibold uppercase tracking-[0.12em] text-kin">
+                    {t(step.label)}
+                  </span>
+                  <span className="block truncate text-xs text-hai">
+                    {t(step.value)}
+                  </span>
+                </span>
+                <CheckCircle2
+                  size={14}
+                  className="ml-auto shrink-0 text-take"
                 />
-              )}
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {["SQL", "Python", "Excel", "Power BI", "Tableau"].map((tool) => (
+              <span
+                key={tool}
+                className="rounded-sm border border-susu/35 bg-sumi px-2 py-1 font-mono text-[9px] text-hai"
+              >
+                {tool}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </motion.div>
@@ -163,9 +114,9 @@ function CodeVisual() {
 }
 
 export default function Hero() {
+  const { t } = useLanguage();
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden px-6 pt-24 pb-24 md:pt-32 md:pb-32">
-      {/* Dot pattern bg */}
+    <section className="relative flex min-h-screen items-center overflow-hidden px-6 pb-24 pt-24 md:pb-28 md:pt-32">
       <div
         className="absolute inset-0 opacity-[0.025]"
         style={{
@@ -175,160 +126,123 @@ export default function Hero() {
         }}
       />
 
-      {/* Ambient glow orbs */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-beni/4 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-kin/4 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute left-[-8rem] top-1/4 h-96 w-96 rounded-full bg-beni/4 blur-[120px]" />
+      <div className="absolute bottom-1/4 right-[-8rem] h-80 w-80 rounded-full bg-kin/4 blur-[100px]" />
+      <div className="hero-bottom-fade absolute inset-x-0 bottom-0 z-10 h-40 bg-linear-to-t from-sumi to-transparent" />
 
-      {/* Bottom fade */}
-      <div className="hero-bottom-fade absolute bottom-0 left-0 right-0 h-40 bg-linear-to-t from-sumi to-transparent pointer-events-none z-10" />
-
-      {/* Left accent line */}
-      <div className="absolute left-8 md:left-16 top-1/2 -translate-y-1/2 w-px h-40 bg-linear-to-b from-transparent via-beni/20 to-transparent hidden md:block" />
-
-      <div className="relative w-full max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* === Left Column === */}
+      <div className="relative mx-auto w-full max-w-6xl">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="text-center lg:text-left">
-            {/* Availability badge */}
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 bg-take/10 border border-take/20 rounded-full mb-8"
+              className="mb-7 inline-flex max-w-full items-center gap-2 rounded-full border border-take/25 bg-take/10 px-3 py-1.5"
             >
-              <Circle size={8} className="text-take fill-take" />
-              <span className="text-[11px] text-take/80 font-medium tracking-wide">
-                Available for product engineering, ERP, dashboard, and AI/data projects
+              <Circle size={8} className="shrink-0 fill-take text-take" />
+              <span className="truncate text-[10px] font-medium tracking-wide text-take sm:text-[11px]">
+                {t(heroData.availability)}
               </span>
             </motion.div>
 
-            {/* Name */}
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+              className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-beni"
+            >
+              {heroData.role}
+            </motion.p>
+
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08] mb-5 font-heading whitespace-normal sm:whitespace-nowrap text-shiro"
+              transition={{ duration: 0.6, delay: 0.12 }}
+              className="hero-name font-heading text-4xl font-bold leading-[1.03] text-shiro sm:text-5xl md:text-6xl"
             >
-              <span className="hero-name bg-linear-to-r from-shiro via-shiro to-kin bg-clip-text in-[.dark]:text-transparent">
-                {heroData.name}
-              </span>
+              {heroData.name}
             </motion.h1>
 
-            {/* Title */}
-            <motion.div
+            <motion.h2
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-5"
+              className="mt-5 max-w-xl font-heading text-2xl font-semibold leading-tight text-shiro/90 sm:text-3xl"
             >
-              <div className="text-base sm:text-lg md:text-xl text-hai font-medium leading-relaxed text-center lg:text-left">
-                <span className="text-beni">✦</span> Full-Stack Developer & AI
-                Engineer
-                <span className="text-hai/50 mx-2">|</span>
-                Product-Minded Builder
-              </div>
-            </motion.div>
+              {t(heroData.headline)}
+            </motion.h2>
 
-            {/* Tagline */}
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-sm md:text-base text-hai max-w-lg mx-auto lg:mx-0 leading-relaxed mb-2"
+              transition={{ duration: 0.6, delay: 0.28 }}
+              className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-hai md:text-base lg:mx-0"
             >
-              {heroData.tagline}
+              {t(heroData.tagline)}
             </motion.p>
 
-            {/* Location */}
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.35 }}
-              className="flex items-center justify-center lg:justify-start gap-1.5 text-xs text-hai mb-10"
+              transition={{ duration: 0.6, delay: 0.34 }}
+              className="mt-3 flex items-center justify-center gap-1.5 text-xs text-hai lg:justify-start"
             >
               <MapPin size={12} />
               {heroData.location}
             </motion.p>
 
-            {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
-              className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8"
+              transition={{ duration: 0.6, delay: 0.42 }}
+              className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start"
             >
               <a
-                href="#products"
-                className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-beni text-shiro font-medium text-sm rounded-sm hover:bg-beni-light transition-all duration-200 shadow-lg shadow-beni/10"
+                href="#analytics"
+                className="group inline-flex items-center justify-center gap-2 rounded-sm bg-beni px-6 py-3 text-sm font-medium text-shiro shadow-lg shadow-beni/10 transition-colors hover:bg-beni-light"
               >
-                Explore Projects
+                {t("View Analytics Work")}
                 <ChevronDown
                   size={16}
-                  className="group-hover:translate-y-0.5 transition-transform"
+                  className="transition-transform group-hover:translate-y-0.5"
                 />
               </a>
               <a
-                href="#contact"
-                className="group inline-flex items-center justify-center gap-2 px-6 py-3 border border-susu text-shiro font-medium text-sm rounded-sm hover:border-beni hover:bg-beni/5 transition-all duration-200"
+                href={cvData.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-2 rounded-sm border border-susu px-6 py-3 text-sm font-medium text-shiro transition-all hover:border-beni hover:bg-beni/5"
               >
-                Start a Project
-                <span className="group-hover:translate-x-0.5 transition-transform">
-                  →
-                </span>
+                {t(cvData.label)}
+                <ArrowRight
+                  size={15}
+                  className="transition-transform group-hover:translate-x-0.5"
+                />
               </a>
             </motion.div>
 
-            {/* Stats Row */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.55 }}
-              className="flex items-center justify-center lg:justify-start flex-wrap sm:flex-nowrap gap-y-3"
-            >
-              {stats.map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.6 + i * 0.08 }}
-                  className="flex items-center"
-                >
-                  <div className="text-center px-2 sm:px-3 md:px-4">
-                    <div className="text-lg sm:text-xl md:text-2xl font-bold text-kin font-heading">
-                      {stat.value}
-                    </div>
-                    <div className="text-[9px] sm:text-[10px] text-hai uppercase tracking-wider mt-1 whitespace-nowrap">
-                      {stat.label}
-                    </div>
-                  </div>
-                  {i < stats.length - 1 && (
-                    <div className="w-px h-6 sm:h-8 bg-susu/20" />
-                  )}
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
 
-          {/* === Right Column: Code Visual === */}
-          <div className="hidden lg:flex justify-center">
-            <CodeVisual />
+          <div className="hidden justify-center lg:flex">
+            <AnalysisVisual />
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20"
+        transition={{ delay: 1.1 }}
+        className="absolute bottom-6 left-1/2 z-20 -translate-x-1/2"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
           className="flex flex-col items-center gap-1 text-hai"
         >
-          <span className="text-[9px] uppercase tracking-[0.3em]">Scroll</span>
+          <span className="text-[9px] uppercase tracking-[0.3em]">
+            {t("Scroll")}
+          </span>
           <ChevronDown size={16} />
         </motion.div>
       </motion.div>

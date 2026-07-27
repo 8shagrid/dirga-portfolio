@@ -6,14 +6,16 @@ import Section from "./Section";
 import { certifications } from "@/lib/data";
 import { Award } from "lucide-react";
 import { viewportOnce } from "@/lib/animations";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Certifications() {
+  const { t } = useLanguage();
   return (
     <Section>
       <SectionHeader
-        label="Certifications"
-        title="Verified Learning Credentials"
-        description="Certifications in SQL, data analytics, machine learning, and deep learning from recognized learning platforms."
+        label={t("Certifications")}
+        title={t("Verified Learning Credentials")}
+        description={t("Certifications in SQL, data analytics, machine learning, and deep learning from recognized learning platforms.")}
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -34,7 +36,7 @@ export default function Certifications() {
                 </h4>
                 <p className="text-xs text-hai mt-1">{cert.issuer}</p>
                 <div className="flex items-center gap-2 mt-2">
-                  <span className="text-[10px] text-hai">{cert.date}</span>
+                  <span className="text-[10px] text-hai">{t(cert.date)}</span>
                   {cert.credentialId && (
                     <span className="text-[10px] text-hai/60 font-mono">
                       {cert.credentialId.slice(0, 12)}...

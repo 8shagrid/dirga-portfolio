@@ -17,7 +17,7 @@ export default function Section({
   return (
     <section
       className={cn(
-        "py-24 md:py-32 px-6",
+        "px-6 py-20 md:py-24",
         bordered && "border-t border-susu/10",
         className,
       )}

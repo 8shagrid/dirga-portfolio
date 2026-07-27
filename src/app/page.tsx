@@ -1,5 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import FeaturedAnalytics from "@/components/FeaturedAnalytics";
+import LatestInsights from "@/components/LatestInsights";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import TechProjects from "@/components/TechProjects";
 import Skills from "@/components/Skills";
@@ -16,8 +18,10 @@ export default function Home() {
       <Navbar />
       <main id="main-content">
         <Hero />
-        <FeaturedProducts />
+        <FeaturedAnalytics />
+        <LatestInsights />
         <TechProjects />
+        <FeaturedProducts />
         <Skills />
         <Experience />
         <Education />

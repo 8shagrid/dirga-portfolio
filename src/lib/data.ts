@@ -1,29 +1,135 @@
 // ============================================
 // Portfolio Data — Dirga Halim Susilo
-// All content in one place for easy editing
+// Data Analyst & Business Intelligence focus
 // ============================================
 
-// --- Hero ---
 export const heroData = {
   name: "Dirga Halim Susilo",
-  title: "Full-Stack Developer & AI Engineer\nData-Driven Product Builder",
+  role: "Data Analyst & Business Intelligence",
+  headline: "Turning complex data into clear business decisions.",
   tagline:
-    "I design, build, and ship web platforms, ERP systems, dashboards, and AI/data workflows that turn messy operations into useful digital products.",
-  stats: [
-    { label: "Live Products", value: "4" },
-    { label: "Projects Delivered", value: "25+" },
-    { label: "ERP Modules", value: "20+" },
-    { label: "GPA", value: "3.77" },
-  ],
+    "I analyze business data, build interactive dashboards, and translate findings into practical recommendations using SQL, Python, Excel, Power BI, and Tableau.",
+  availability: "Open to Data Analyst and Business Intelligence roles",
   location: "Medan, Indonesia",
 };
 
-// --- Featured Products ---
+export interface CaseStudyMetric {
+  value: string;
+  label: string;
+}
+
+export interface AnalyticsCaseStudy {
+  title: string;
+  type: string;
+  description: string;
+  businessQuestion: string;
+  deliverables: string[];
+  metrics: CaseStudyMetric[];
+  tech: string[];
+  link: string;
+  linkLabel: string;
+  image: string;
+  imageAlt: string;
+}
+
+export const analyticsCaseStudies: AnalyticsCaseStudy[] = [
+  {
+    title: "HR Analytics Dashboard",
+    type: "Workforce Analytics",
+    description:
+      "An interactive workforce dashboard that turns employee records into a clear view of attrition, demographics, job satisfaction, and department-level patterns.",
+    businessQuestion:
+      "Which employee segments show higher attrition, and where should HR focus retention efforts?",
+    deliverables: [
+      "KPI summary for workforce size and attrition",
+      "Segment analysis by age, education, job, and department",
+      "Interactive slicers for stakeholder exploration",
+    ],
+    metrics: [
+      { value: "588", label: "Employees analyzed" },
+      { value: "15%", label: "Attrition rate" },
+      { value: "501", label: "Active employees" },
+    ],
+    tech: [
+      "Microsoft Excel",
+      "Pivot Tables",
+      "Pivot Charts",
+      "Slicers",
+      "Data Visualization",
+    ],
+    link: "https://github.com/8shagrid/hr-analytics-dashboard-excel",
+    linkLabel: "View case study",
+    image: "/screenshots/hr-analytics.webp",
+    imageAlt:
+      "HR analytics dashboard showing employee, attrition, demographic, and satisfaction metrics",
+  },
+  {
+    title: "Car Sales Dashboard",
+    type: "Sales Performance Analytics",
+    description:
+      "A sales dashboard designed to help management monitor revenue, unit volume, commissions, monthly trends, top models, and salesperson performance.",
+    businessQuestion:
+      "What drives sales performance, and which months, products, and salespeople contribute the most?",
+    deliverables: [
+      "Executive KPI cards for sales, units, and commission",
+      "Monthly trend and product-mix analysis",
+      "Salesperson ranking for performance review",
+    ],
+    metrics: [
+      { value: "$31.48B", label: "Sales represented" },
+      { value: "1.05M", label: "Units represented" },
+      { value: "May", label: "Peak sales month" },
+    ],
+    tech: [
+      "Microsoft Excel",
+      "Pivot Tables",
+      "Charts",
+      "Conditional Formatting",
+      "KPI Reporting",
+    ],
+    link: "https://github.com/8shagrid/car-sales-dashboard-excel",
+    linkLabel: "View case study",
+    image: "/screenshots/car-sales.webp",
+    imageAlt:
+      "Car sales dashboard showing revenue, units, commission, salespeople, models, and monthly trend",
+  },
+  {
+    title: "Road Accident Dashboard",
+    type: "Public Safety Analytics",
+    description:
+      "An interactive dashboard that summarizes road-casualty severity, monthly patterns, road types, lighting, surface conditions, and urban versus rural distribution.",
+    businessQuestion:
+      "Where and under what conditions are casualties concentrated, and which patterns deserve attention?",
+    deliverables: [
+      "Severity-based casualty KPI reporting",
+      "Monthly, road-type, and environmental analysis",
+      "Year and month filters for comparative exploration",
+    ],
+    metrics: [
+      { value: "417,883", label: "Casualties represented" },
+      { value: "7,135", label: "Fatal casualties" },
+      { value: "61%", label: "Urban share" },
+    ],
+    tech: [
+      "Microsoft Excel",
+      "Pivot Tables",
+      "Pivot Charts",
+      "Slicers",
+      "Data Storytelling",
+    ],
+    link: "https://github.com/8shagrid/road-accident-dashboard-excel",
+    linkLabel: "View case study",
+    image: "/screenshots/road-accident.webp",
+    imageAlt:
+      "Road accident dashboard showing casualty severity, trends, road types, lighting, surface, and location",
+  },
+];
+
 export interface Product {
   title: string;
   role: string;
-  badge?: string;
   description: string;
+  analyticsAngle: string;
   tech: string[];
   link: string;
   linkLabel: string;
@@ -32,74 +138,64 @@ export interface Product {
 
 export const products: Product[] = [
   {
+    title: "Seraya ERP",
+    role: "Owner & Full-Stack Developer",
+    description:
+      "A production ERP for sales, cash flow, budgeting, production, reseller commissions, audit logs, and automated reporting.",
+    analyticsAngle:
+      "Designed the operational data structure and reporting flow used to monitor business performance across more than 20 modules.",
+    tech: [
+      "PostgreSQL",
+      "Supabase",
+      "Prisma ORM",
+      "Recharts",
+      "Next.js",
+      "TypeScript",
+    ],
+    link: "#contact",
+    linkLabel: "Request a walkthrough",
+    image: "/screenshots/seraya-erp.png",
+  },
+  {
     title: "SiapTempur.id",
     role: "Owner & Full-Stack Developer",
     description:
-      "Platform tryout SKD CPNS berbasis web dengan penilaian standar CAT BKN, timer real-time, pembayaran Midtrans, dan pengalaman latihan yang ringan tanpa sistem langganan. Dibangun untuk membantu peserta berlatih lebih terarah sebelum ujian.",
+      "An online SKD practice platform with CAT-style scoring, timed exams, payment integration, and performance reporting.",
+    analyticsAngle:
+      "Built score summaries and visual reporting that help learners review section-level results and track readiness.",
     tech: [
-      "Next.js 16",
-      "TypeScript",
-      "Tailwind CSS 4",
       "Supabase",
-      "Midtrans",
-      "Framer Motion",
       "Recharts",
+      "PostgreSQL",
+      "Next.js",
+      "TypeScript",
+      "Midtrans",
     ],
     link: "https://siaptempur.id",
-    linkLabel: "View Live Platform",
+    linkLabel: "View live product",
     image: "/screenshots/siaptempur.png",
   },
   {
     title: "PejuangKampus.co.id",
     role: "Freelance Full-Stack Developer",
     description:
-      "Platform bimbingan belajar online untuk persiapan PTN dan sekolah kedinasan. Mencakup ujian online, manajemen soal, leaderboard, dan sistem pembelajaran digital yang siap digunakan siswa dan tim operasional.",
+      "An education platform covering online exams, question management, leaderboards, and digital learning workflows.",
+    analyticsAngle:
+      "Translated assessment and user activity into operational views for learners and the internal team.",
     tech: [
-      "Next.js 16",
-      "TypeScript",
-      "Tailwind CSS 4",
       "Supabase",
-      "Zustand",
-      "Zod",
-      "React Hook Form",
-      "KaTeX",
+      "PostgreSQL",
+      "Data Modeling",
+      "Next.js",
+      "TypeScript",
+      "Recharts",
     ],
     link: "https://pejuangkampus.co.id",
-    linkLabel: "View Live Platform",
+    linkLabel: "View live product",
     image: "/screenshots/pejuangkampus.png",
-  },
-  {
-    title: "Seraya ERP",
-    role: "Owner & Full-Stack Developer",
-    description:
-      "Sistem ERP custom untuk operasional bisnis Seraya, dibangun solo dari nol hingga production. Mengelola dashboard, produksi, penjualan, cashflow, budgeting, bagi hasil, komisi reseller, audit logs, role-based access, analytics, dan reporting otomatis.",
-    tech: [
-      "Next.js 16",
-      "TypeScript",
-      "Prisma ORM",
-      "PostgreSQL",
-      "Supabase",
-      "Shadcn UI",
-      "TanStack Table",
-      "Playwright",
-    ],
-    link: "#contact",
-    linkLabel: "Request ERP Demo",
-    image: "/screenshots/seraya-erp.png",
-  },
-  {
-    title: "Seraya.my.id",
-    role: "Owner & Full-Stack Developer",
-    description:
-      "Website studio undangan digital dan fisik untuk pernikahan, ulang tahun, aqiqah, dan khitanan. Menawarkan 150+ tema siap pakai, proses pemesanan yang jelas, dan pengalaman klien dengan rating 4.9.",
-    tech: ["HTML5", "CSS3", "JavaScript", "Lucide Icons", "Vercel"],
-    link: "https://seraya.my.id",
-    linkLabel: "View Live Website",
-    image: "/screenshots/seraya.png",
   },
 ];
 
-// --- Tech Projects ---
 export interface Project {
   title: string;
   type: string;
@@ -107,111 +203,80 @@ export interface Project {
   tech: string[];
   link?: string;
   linkLabel?: string;
-  badge?: string;
 }
 
 export const projects: Project[] = [
   {
-    title: "SIBI Sign Language Detection",
-    type: "AI / Machine Learning",
+    title: "Crypto Market ETL Pipeline",
+    type: "Data Engineering / Analytics",
     description:
-      "Computer-vision project untuk mendeteksi bahasa isyarat SIBI menggunakan MediaPipe, TensorFlow, data collection script, trained model, dan inference real-time. Dibangun sebagai bukti kemampuan ML dari data preparation sampai demo aplikasi.",
-    tech: ["Python", "TensorFlow", "MediaPipe", "OpenCV", "Jupyter Notebook"],
-    link: "https://github.com/8shagrid/sibi-sign-language-detection",
-    linkLabel: "View Repository",
+      "Extracts market data from the CoinGecko API, cleans and normalizes the response with Python, and prepares structured output for CSV or PostgreSQL-based analytics.",
+    tech: ["Python", "Pandas", "SQLAlchemy", "PostgreSQL", "REST API", "ETL"],
+    link: "https://github.com/8shagrid/etl-coingecko-pipeline",
+    linkLabel: "View repository",
   },
   {
     title: "Tokopedia Review Scraper",
-    type: "Data Engineering / Market Research",
+    type: "Market Research / Data Collection",
     description:
-      "Python scraper untuk mengumpulkan ulasan produk Tokopedia, membersihkan relative date, dan menyiapkan dataset review untuk sentiment analysis maupun riset pasar e-commerce.",
-    tech: ["Python", "Web Scraping", "Data Cleaning", "Sentiment Analysis"],
+      "Collects product reviews, standardizes relative dates, and produces a clean dataset ready for sentiment analysis or e-commerce market research.",
+    tech: ["Python", "Web Scraping", "Data Cleaning", "Text Data"],
     link: "https://github.com/8shagrid/tokopedia-review-scraper",
-    linkLabel: "View Repository",
+    linkLabel: "View repository",
   },
   {
-    title: "Crypto Market ETL Pipeline",
-    type: "Data Pipeline / Analytics",
+    title: "SIBI Sign Language Detection",
+    type: "Machine Learning",
     description:
-      "ETL pipeline untuk mengambil data pasar crypto dari CoinGecko, menyimpannya ke PostgreSQL, dan menyiapkan fondasi data yang siap dipakai untuk dashboard, analitik, atau automasi monitoring market.",
-    tech: ["Python", "CoinGecko API", "PostgreSQL", "ETL", "Analytics"],
-    link: "https://github.com/8shagrid/etl-coingecko-pipeline",
-    linkLabel: "View Repository",
-  },
-  {
-    title: "HR Analytics Dashboard",
-    type: "Business Intelligence",
-    description:
-      "Dashboard analitik HR untuk memantau attrition rate, demografi, pendidikan, gender, dan kepuasan kerja. Dirancang agar tim HR lebih cepat membaca tren workforce dan membuat laporan yang lebih actionable.",
-    tech: ["Excel", "Pivot Tables", "Data Analysis", "Interactive Dashboard"],
-    link: "https://github.com/8shagrid/hr-analytics-dashboard-excel",
-    linkLabel: "View Repository",
-  },
-  {
-    title: "Road Accident Dashboard",
-    type: "Data Visualization",
-    description:
-      "Dashboard visualisasi data kecelakaan jalan berbasis Excel yang merangkum tren bulanan, jenis jalan, kondisi cahaya, permukaan jalan, dan lokasi kejadian untuk membantu analisis risiko secara cepat.",
-    tech: ["Excel", "Data Visualization", "Interactive Dashboard", "Statistics"],
-    link: "https://github.com/8shagrid/road-accident-dashboard-excel",
-    linkLabel: "View Repository",
-  },
-  {
-    title: "Coding Roadmap",
-    type: "Education / Developer Experience",
-    description:
-      "Interactive coding roadmap berbasis Next.js dan MDX untuk menyusun jalur belajar software development yang lebih terstruktur, mudah dinavigasi, dan siap dikembangkan sebagai learning product.",
-    tech: ["Next.js", "MDX", "TypeScript", "Education", "Developer Tools"],
-    link: "https://coding-roadmap-one.vercel.app",
-    linkLabel: "View Live Site",
+      "A computer-vision workflow covering data collection, preprocessing, TensorFlow model training, and real-time inference for SIBI sign-language recognition.",
+    tech: ["Python", "TensorFlow", "MediaPipe", "OpenCV", "Jupyter Notebook"],
+    link: "https://github.com/8shagrid/sibi-sign-language-detection",
+    linkLabel: "View repository",
   },
 ];
 
-// --- Skills ---
 export const skillGroups = [
   {
-    title: "AI & Data Science",
+    title: "Analysis & Business Intelligence",
+    skills: [
+      "SQL",
+      "Microsoft Excel",
+      "Power BI",
+      "Tableau",
+      "Looker Studio",
+      "Data Visualization",
+      "Dashboard Design",
+      "KPI Reporting",
+    ],
+  },
+  {
+    title: "Programming & Statistics",
     skills: [
       "Python",
       "Pandas",
       "NumPy",
-      "Scikit-learn",
-      "TensorFlow",
-      "Machine Learning",
-      "Deep Learning",
       "Statistics",
-      "Data Mining",
-      "Predictive Modeling",
-      "Data Visualization",
-      "Power BI",
-      "Tableau",
-      "Streamlit",
+      "Exploratory Data Analysis",
+      "Data Cleaning",
+      "Data Wrangling",
+      "Scikit-learn",
     ],
   },
   {
-    title: "Software Engineering",
+    title: "Data & Product Systems",
     skills: [
-      "TypeScript",
-      "JavaScript",
-      "Next.js 16",
-      "React 19",
-      "Tailwind CSS 4",
-      "Node.js",
-      "Prisma ORM",
       "PostgreSQL",
       "Supabase",
-      "Zustand",
-      "Zod",
+      "ETL Workflows",
       "REST APIs",
-      "Midtrans",
-      "Docker",
+      "Recharts",
+      "Streamlit",
       "Git",
-      "Vercel",
+      "Data Storytelling",
     ],
   },
 ];
 
-// --- Experience ---
 export interface Experience {
   period: string;
   role: string;
@@ -223,14 +288,14 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     period: "Jul 2024 — Present",
-    role: "Freelance Developer & Data Specialist",
+    role: "Freelance Data Analyst",
     company: "Remote / Various Clients",
     location: "Indonesia",
     details: [
-      "Mengelola siklus data end-to-end: collection, cleaning, transformation, analysis, dan insight generation.",
-      "Membangun landing page, web application, dan internal tools menggunakan Next.js, React, Supabase, dan TypeScript.",
-      "Mendesain dashboard interaktif untuk business intelligence menggunakan Power BI, Tableau, Looker Studio, dan Recharts.",
-      "Mengembangkan dan mengoperasikan 4 produk digital sendiri sebagai founder sekaligus engineer.",
+      "Translate business needs into clear analytical questions and practical reporting requirements.",
+      "Execute end-to-end analysis covering data collection, cleaning, transformation, exploration, and visualization.",
+      "Build interactive dashboards with Excel, Power BI, Tableau, or Looker Studio to monitor KPIs and communicate findings.",
+      "Present insights and recommendations that support marketing, operational, and sales decisions.",
     ],
   },
   {
@@ -239,31 +304,9 @@ export const experiences: Experience[] = [
     company: "PT eBdesk Teknologi",
     location: "Tangerang Selatan",
     details: [
-      "Mendukung riset data pemilu melalui data cleaning, feature engineering, dan eksplorasi pola data.",
-      "Membantu proses visualisasi dashboard dan workflow machine learning bersama tim data science.",
-      "Berpartisipasi dalam eksperimen tuning parameter untuk meningkatkan performa model.",
-    ],
-  },
-  {
-    period: "Sep 2022 — Jan 2023",
-    role: "Lecturer Assistant",
-    company: "Universitas Teknologi Yogyakarta",
-    location: "Yogyakarta",
-    details: [
-      "Mendampingi kelas, seminar, dan pelatihan dengan fokus pada pemahaman praktis mahasiswa.",
-      "Menilai proyek mahasiswa, praktikum, serta aktivitas riset laboratorium.",
-      "Memberikan bimbingan akademik dan membantu mahasiswa memahami materi secara praktis.",
-    ],
-  },
-  {
-    period: "Aug 2022 — Jan 2023",
-    role: "Head of Research Chapter Yogyakarta",
-    company: "Data Science Indonesia",
-    location: "Yogyakarta",
-    details: [
-      "Mengelola arah riset dan program pembelajaran data science untuk chapter Yogyakarta.",
-      "Mengoordinasikan seminar, pelatihan, dan diskusi riset bersama komunitas data.",
-      "Mendorong kolaborasi antaranggota untuk membangun pemahaman praktis tentang data science.",
+      "Supported election-data research through data cleaning, exploratory analysis, and feature preparation.",
+      "Prepared preliminary charts and dashboard visuals to communicate patterns to the data science team.",
+      "Assisted with preprocessing and parameter-tuning experiments under senior mentorship.",
     ],
   },
   {
@@ -272,28 +315,46 @@ export const experiences: Experience[] = [
     company: "Santara",
     location: "Yogyakarta",
     details: [
-      "Melakukan input dan validasi data karyawan harian di sistem HRIS.",
-      "Menyusun laporan Excel dan pivot table untuk mendukung analisis strategis HR.",
-      "Terlibat dalam analisis UX aplikasi internal untuk meningkatkan alur kerja pengguna.",
+      "Validated attendance, leave, and employee records in the HRIS to maintain data accuracy and completeness.",
+      "Compiled employee-performance data into Excel reports and PivotTables for HR analysis.",
+      "Categorized internal application feedback to help identify workflow and usability pain points.",
+    ],
+  },
+  {
+    period: "Aug 2022 — Jan 2023",
+    role: "Head of Research, Yogyakarta Chapter",
+    company: "Data Science Indonesia",
+    location: "Yogyakarta",
+    details: [
+      "Led data science training, research discussions, and seminar programs with practitioners and community members.",
+      "Coordinated data-literacy and visualization learning using practical tools including Looker Studio.",
+    ],
+  },
+  {
+    period: "Sep 2022 — Jan 2023",
+    role: "Lecturer Assistant",
+    company: "Universitas Teknologi Yogyakarta",
+    location: "Yogyakarta",
+    details: [
+      "Facilitated practical classes, seminars, and training sessions for university students.",
+      "Reviewed projects, practical assignments, and laboratory research activities.",
     ],
   },
 ];
 
-// --- Education ---
 export const education = {
-  degree: "Sarjana Sains Data (S1)",
+  degree: "Bachelor of Data Science",
   school: "Universitas Teknologi Yogyakarta",
   period: "Sep 2020 — Aug 2024",
   gpa: "3.77 / 4.00",
   thesis:
-    "Riset translator bahasa isyarat berbasis web menggunakan CNN untuk mengenali alfabet bahasa isyarat dari dataset MNIST, mencapai akurasi tinggi pada mayoritas huruf, dan mengidentifikasi peluang pengembangan aplikasi real-time.",
+    "Developed and evaluated a CNN-based web sign-language translator, achieving high recognition accuracy on most static alphabet classes and identifying motion detection as a key direction for real-time improvement.",
   achievements: [
-    "Asisten Dosen (Sep 2022 — Jan 2023): Memimpin sesi praktikum, membantu seminar, menilai proyek UTS/UAS, dan memberikan bimbingan akademik.",
-    "Head of Research Chapter Yogyakarta — Data Science Indonesia (Aug 2022 — Jan 2023): Mengelola program seminar, pelatihan, dan riset data science untuk chapter Yogyakarta.",
+    "Lecturer Assistant (Sep 2022 — Jan 2023): facilitated practical learning, assessed projects, and supported laboratory activities.",
+    "Head of Research, Data Science Indonesia Yogyakarta (Aug 2022 — Jan 2023): led seminars, training, and research-oriented community programs.",
   ],
 };
 
-// --- Certifications ---
 export const certifications = [
   {
     title: "SQL (Advanced)",
@@ -332,7 +393,6 @@ export const certifications = [
   },
 ];
 
-// --- Contact ---
 export const contactData = {
   email: "dirgahalimsusilo@gmail.com",
   phone: "+628****3590",
@@ -343,17 +403,16 @@ export const contactData = {
   website: "dirgahalimsusilo.site",
 };
 
-// --- CV Download ---
 export const cvData = {
-  label: "Download CV",
+  label: "View Resume",
   url: "/cv-dirga-halim-susilo.pdf",
 };
 
-// --- Navigation ---
 export const navLinks = [
-  { label: "Products", href: "#products" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
+  { label: "Analytics", href: "/#analytics" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Insights", href: "/insights" },
+  { label: "Contact", href: "/#contact" },
 ];

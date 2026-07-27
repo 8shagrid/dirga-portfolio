@@ -5,24 +5,32 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
 [![Live Site](https://img.shields.io/badge/Live-dirgahalimsusilo.site-c53030)](https://dirgahalimsusilo.site/)
 
-Production-ready personal portfolio for **Dirga Halim Susilo** — Full-Stack Developer, AI Engineer, and Data Specialist based in Medan, Indonesia.
+Production-ready personal portfolio for **Dirga Halim Susilo** — Data Analyst and Business Intelligence professional based in Medan, Indonesia.
 
 **Live:** [dirgahalimsusilo.site](https://dirgahalimsusilo.site/)
 
 ## Overview
 
-This portfolio positions Dirga as a product-minded engineer who builds real web platforms, ERP systems, data dashboards, and AI solutions. The site is designed as a professional landing page for recruiters, clients, and collaborators.
+This portfolio positions Dirga as a Data Analyst who turns business questions into prepared data, clear analysis, interactive dashboards, and practical recommendations. Software engineering work remains visible as supporting evidence of strong technical delivery.
 
 ## Highlights
 
-- Product-focused portfolio with live web platforms, ERP work, AI/data projects, experience, certifications, and contact flow
+- Recruiter-focused hero with a clear Data Analyst and Business Intelligence position
+- Three visual analytics case studies with business questions, KPIs, deliverables, tools, and repository links
+- Supporting ETL, data collection, machine learning, and production product experience
 - Responsive single-page experience with smooth anchor navigation
 - Light/dark mode with persisted theme preference
 - Centralized content management in `src/lib/data.ts`
 - SEO metadata, Open Graph image route, sitemap, robots, and JSON-LD structured data
-- Downloadable CV from `public/cv-dirga-halim-susilo.pdf`
+- ATS-friendly one-page resume generated from `scripts/generate_resume.py`
 
-## Featured Screenshots
+## Featured Analytics
+
+| HR Analytics | Car Sales | Road Accident |
+| --- | --- | --- |
+| ![HR analytics screenshot](public/screenshots/hr-analytics.webp) | ![Car sales screenshot](public/screenshots/car-sales.webp) | ![Road accident screenshot](public/screenshots/road-accident.webp) |
+
+## Supporting Product Screenshots
 
 | SiapTempur | PejuangKampus |
 | --- | --- |
@@ -72,10 +80,20 @@ npm run build
 
 Most portfolio content lives in `src/lib/data.ts`:
 
-- Hero title, tagline, stats, and location
-- Product/project descriptions and links
+- Hero role, positioning, tagline, stats, and location
+- Analytics case studies, metrics, business questions, and links
+- Supporting product/project descriptions and links
 - Skills, experience, education, certifications
 - Contact links and CV URL
+
+## Resume
+
+Regenerate the downloadable resume with:
+
+```bash
+python scripts/generate_resume.py
+cp output/pdf/cv-dirga-halim-susilo.pdf public/cv-dirga-halim-susilo.pdf
+```
 
 ## Deployment
 

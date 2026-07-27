@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/i18n";
 
 type Theme = "dark" | "light";
 
@@ -35,6 +36,7 @@ interface ThemeToggleProps {
 }
 
 export default function ThemeToggle({ className }: ThemeToggleProps) {
+  const { language } = useLanguage();
   const [theme, setTheme] = useState<Theme>("dark");
   const [mounted, setMounted] = useState(false);
 
@@ -61,8 +63,16 @@ export default function ThemeToggle({ className }: ThemeToggleProps) {
     <button
       type="button"
       onClick={toggleTheme}
-      aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-      title={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+      aria-label={
+        language === "id"
+          ? `Ganti ke mode ${theme === "light" ? "gelap" : "terang"}`
+          : `Switch to ${theme === "light" ? "dark" : "light"} mode`
+      }
+      title={
+        language === "id"
+          ? `Ganti ke mode ${theme === "light" ? "gelap" : "terang"}`
+          : `Switch to ${theme === "light" ? "dark" : "light"} mode`
+      }
       className={cn(
         "inline-flex h-9 w-9 items-center justify-center rounded-sm border border-susu/30 text-hai transition-all duration-200 hover:border-beni/40 hover:bg-beni/5 hover:text-shiro",
         className,

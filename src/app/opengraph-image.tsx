@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 
 export const alt =
-  "Dirga Halim Susilo | Full-Stack Developer, AI Engineer & Data Specialist";
+  "Dirga Halim Susilo | Data Analyst & Business Intelligence";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -107,7 +107,7 @@ export default function Image() {
             fontWeight: 400,
           }}
         >
-          Full-Stack Developer, AI Engineer & Data Specialist
+          Data Analyst & Business Intelligence
         </p>
       </div>
 
@@ -121,10 +121,10 @@ export default function Image() {
         }}
       >
         {[
-          { value: "4", label: "Live Products" },
+          { value: "5+", label: "Analytics Projects" },
           { value: "3.77", label: "GPA" },
           { value: "6", label: "Certifications" },
-          { value: "20", label: "ERP Modules" },
+          { value: "3", label: "Data Roles" },
         ].map((stat) => (
           <div
             key={stat.label}
