@@ -33,8 +33,8 @@ export default function Contact() {
 
     const subject = encodeURIComponent(
       language === "id"
-        ? `Peluang Data Analyst — ${name}`
-        : `Data Analyst Opportunity — ${name}`,
+        ? `Peluang Data Analyst / Analytics Engineer — ${name}`
+        : `Data Analyst / Analytics Engineering Opportunity — ${name}`,
     );
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
@@ -84,7 +84,7 @@ export default function Contact() {
       <SectionHeader
         label={t("Availability")}
         title={t("Let’s Discuss a Data Role")}
-        description={t("Open to Data Analyst and Business Intelligence opportunities where clear analysis, practical dashboards, and business communication matter.")}
+        description={t("Open to Data Analyst and Analytics Engineering opportunities where clear analysis, practical dashboards, and reliable data systems matter.")}
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

@@ -1,22 +1,23 @@
 # PRD: Data Analyst Portfolio - Dirga Halim Susilo
 
-**Version:** 2.0
+**Version:** 3.0
 
-**Updated:** 27 July 2026
+**Updated:** 26 September 2026
 
 **Status:** Implemented
 
 ## 1. Goal
 
-Position Dirga Halim Susilo as a job-ready **Data Analyst and Business Intelligence candidate** who can:
+Position Dirga Halim Susilo as a job-ready **Data Analyst and Analytics Engineer** — a "Data Analyst who ships" — who can:
 
 - translate business needs into analytical questions;
 - clean, transform, and explore data;
 - design decision-ready dashboards and KPI reports;
-- communicate findings to non-technical stakeholders;
-- work comfortably across Excel, SQL, Python, BI tools, and production data systems.
+- engineer the SQL, Python pipelines, and data models behind reliable reporting;
+- ship and maintain the production systems where the data actually lives;
+- communicate findings to non-technical stakeholders.
 
-Full-stack and AI work remains supporting evidence of technical breadth. It must not compete with the primary Data Analyst position.
+Full-stack and AI work remains supporting evidence of technical delivery. It must not compete with the primary Data Analyst and Analytics Engineering position.
 
 ## 2. Target Audience
 
@@ -29,13 +30,13 @@ Full-stack and AI work remains supporting evidence of technical breadth. It must
 
 ## 3. Core Positioning
 
-**Role:** Data Analyst & Business Intelligence
+**Role:** Data Analyst & Analytics Engineer
 
-**Promise:** Turning complex data into clear business decisions.
+**Promise:** Turning complex data into decisions—and shipping the systems behind them.
 
 **Primary tools:** SQL, Python, Excel, Power BI, Tableau, Looker Studio
 
-**Supporting strengths:** PostgreSQL, ETL, statistics, data storytelling, production software systems
+**Supporting strengths:** PostgreSQL, Supabase, Prisma, ETL, data modeling, statistics, production software systems
 
 ## 4. Information Architecture
 
@@ -50,22 +51,28 @@ Full-stack and AI work remains supporting evidence of technical breadth. It must
    - HR Analytics Dashboard;
    - Car Sales Dashboard;
    - Road Accident Dashboard.
-3. **Supporting Data Projects**
-   - Crypto Market ETL Pipeline;
+3. **Analytics Engineering**
+   - Crypto Market ETL Pipeline (extract, transform, load stages);
+   - Seraya ERP Data Model;
    - Tokopedia Review Scraper;
-   - SIBI Sign Language Detection.
+   - SIBI Sign Language Detection;
+   - supporting SQL credential.
 4. **Data-Enabled Products**
    - Seraya ERP;
    - SiapTempur.id;
    - PejuangKampus.co.id.
-5. **Capabilities**
+5. **Latest Insights**
+6. **Capabilities**
    - Analysis & Business Intelligence;
    - Programming & Statistics;
-   - Data & Product Systems.
-6. **Experience**
-7. **Education**
-8. **Certifications**
-9. **Contact**
+   - Analytics Engineering & Systems.
+7. **Experience**
+   - Founder & Owner, Seraya Wedding Services (business context for the ERP);
+   - Freelance Data Analyst;
+   - data internships and academic roles.
+8. **Education**
+9. **Certifications**
+10. **Contact**
 
 ## 5. Case Study Standard
 
@@ -87,7 +94,7 @@ Avoid unsupported claims such as estimated time savings, business impact, user c
 - Use numbers only when they can be verified from the dashboard, dataset, repository, or source system.
 - Keep project descriptions concise and outcome-oriented.
 - Maintain the same email, phone number, domain, role, and timeline across the website and resume.
-- Avoid presenting software engineering, AI, and data analysis as three equal career targets.
+- Present data analysis and analytics engineering as one coherent identity; keep software engineering and AI work as supporting delivery evidence.
 
 ## 7. Resume Requirements
 

@@ -1,9 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FeaturedAnalytics from "@/components/FeaturedAnalytics";
+import AnalyticsEngineering from "@/components/AnalyticsEngineering";
 import LatestInsights from "@/components/LatestInsights";
 import FeaturedProducts from "@/components/FeaturedProducts";
-import TechProjects from "@/components/TechProjects";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
@@ -19,9 +19,9 @@ export default function Home() {
       <main id="main-content">
         <Hero />
         <FeaturedAnalytics />
-        <LatestInsights />
-        <TechProjects />
+        <AnalyticsEngineering />
         <FeaturedProducts />
+        <LatestInsights />
         <Skills />
         <Experience />
         <Education />

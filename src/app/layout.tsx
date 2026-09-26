@@ -32,12 +32,14 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dirgahalimsusilo.site"),
-  title: "Dirga Halim Susilo | Data Analyst & Business Intelligence",
+  title: "Dirga Halim Susilo | Data Analyst & Analytics Engineer",
   description:
-    "Data Analyst portfolio of Dirga Halim Susilo, featuring interactive Excel dashboards, SQL and Python analytics, ETL workflows, workforce analysis, sales reporting, and business intelligence projects.",
+    "Data Analyst and Analytics Engineer portfolio of Dirga Halim Susilo, featuring interactive Excel dashboards, SQL and Python analytics, ETL pipelines, production data models, workforce analysis, and sales reporting.",
   keywords: [
     "Dirga Halim Susilo",
     "Data Analyst",
+    "Analytics Engineer",
+    "Analytics Engineering",
     "Business Intelligence Analyst",
     "Data Analyst Portfolio",
     "Excel Dashboard",
@@ -45,15 +47,17 @@ export const metadata: Metadata = {
     "Tableau",
     "SQL",
     "Python",
+    "PostgreSQL",
+    "ETL",
+    "Data Modeling",
     "Data Visualization",
-    "Business Intelligence",
     "Medan Data Analyst",
   ],
   authors: [{ name: "Dirga Halim Susilo" }],
   openGraph: {
-    title: "Dirga Halim Susilo | Data Analyst & Business Intelligence",
+    title: "Dirga Halim Susilo | Data Analyst & Analytics Engineer",
     description:
-      "Interactive dashboards, practical analytics, and data projects built to support clearer business decisions.",
+      "Dashboards, pipelines, and production data systems built to support clearer business decisions.",
     type: "website",
     locale: "en_ID",
     siteName: "Dirga Halim Susilo",
@@ -62,15 +66,15 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Dirga Halim Susilo | Data Analyst & Business Intelligence portfolio",
+        alt: "Dirga Halim Susilo | Data Analyst & Analytics Engineer portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dirga Halim Susilo | Data Analyst & Business Intelligence",
+    title: "Dirga Halim Susilo | Data Analyst & Analytics Engineer",
     description:
-      "Interactive dashboards, practical analytics, and data projects built to support clearer business decisions.",
+      "Dashboards, pipelines, and production data systems built to support clearer business decisions.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -93,9 +97,9 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Dirga Halim Susilo",
-  jobTitle: "Data Analyst & Business Intelligence Analyst",
+  jobTitle: "Data Analyst & Analytics Engineer",
   description:
-    "Data analyst who transforms raw business data into interactive dashboards, clear insights, and practical recommendations.",
+    "Data analyst who turns raw business data into dashboards and decisions, and engineers the pipelines and data models behind reliable reporting.",
   url: "https://dirgahalimsusilo.site",
   sameAs: [
     "https://github.com/8shagrid",
@@ -103,9 +107,13 @@ const jsonLd = {
   ],
   knowsAbout: [
     "Data Analysis",
+    "Analytics Engineering",
     "Business Intelligence",
     "SQL",
     "Python",
+    "PostgreSQL",
+    "ETL",
+    "Data Modeling",
     "Microsoft Excel",
     "Power BI",
     "Tableau",

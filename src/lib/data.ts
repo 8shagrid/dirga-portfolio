@@ -1,15 +1,15 @@
 // ============================================
 // Portfolio Data — Dirga Halim Susilo
-// Data Analyst & Business Intelligence focus
+// Data Analyst & Analytics Engineer focus
 // ============================================
 
 export const heroData = {
   name: "Dirga Halim Susilo",
-  role: "Data Analyst & Business Intelligence",
-  headline: "Turning complex data into clear business decisions.",
+  role: "Data Analyst & Analytics Engineer",
+  headline: "Turning complex data into decisions—and shipping the systems behind them.",
   tagline:
-    "I analyze business data, build interactive dashboards, and translate findings into practical recommendations using SQL, Python, Excel, Power BI, and Tableau.",
-  availability: "Open to Data Analyst and Business Intelligence roles",
+    "I analyze business data, build interactive dashboards, and engineer the SQL, Python pipelines, and production data models that keep reporting reliable.",
+  availability: "Open to Data Analyst and Analytics Engineering roles",
   location: "Medan, Indonesia",
 };
 
@@ -141,9 +141,9 @@ export const products: Product[] = [
     title: "Seraya ERP",
     role: "Owner & Full-Stack Developer",
     description:
-      "A production ERP for sales, cash flow, budgeting, production, reseller commissions, audit logs, and automated reporting.",
+      "A production ERP built for my own multi-unit wedding services business, covering sales, cash flow, budgeting, production, reseller commissions, audit logs, and automated reporting.",
     analyticsAngle:
-      "Designed the operational data structure and reporting flow used to monitor business performance across more than 20 modules.",
+      "Designed the operational data structure and reporting flow used by the business to monitor performance across more than 20 modules.",
     tech: [
       "PostgreSQL",
       "Supabase",
@@ -196,42 +196,75 @@ export const products: Product[] = [
   },
 ];
 
-export interface Project {
+export interface PipelineStage {
+  label: string;
+  detail: string;
+}
+
+export const engineeringFeature = {
+  title: "Crypto Market ETL Pipeline",
+  type: "ETL & Data Pipelines",
+  description:
+    "Extracts market data from the CoinGecko API, cleans and normalizes the response with Python, and prepares structured output for CSV or PostgreSQL-based analytics.",
+  stages: [
+    {
+      label: "Extract",
+      detail: "Market data pulled from the CoinGecko REST API",
+    },
+    {
+      label: "Transform",
+      detail: "Response cleaned and normalized with Python and Pandas",
+    },
+    {
+      label: "Load",
+      detail: "Structured output prepared for CSV or PostgreSQL",
+    },
+  ] satisfies PipelineStage[],
+  tech: ["Python", "Pandas", "SQLAlchemy", "PostgreSQL", "REST API", "ETL"],
+  link: "https://github.com/8shagrid/etl-coingecko-pipeline",
+  linkLabel: "View repository",
+};
+
+export interface EngineeringWork {
   title: string;
   type: string;
   description: string;
   tech: string[];
-  link?: string;
-  linkLabel?: string;
+  link: string;
+  linkLabel: string;
+  external: boolean;
 }
 
-export const projects: Project[] = [
+export const engineeringProjects: EngineeringWork[] = [
   {
-    title: "Crypto Market ETL Pipeline",
-    type: "Data Engineering / Analytics",
+    title: "Seraya ERP Data Model",
+    type: "Relational Data Modeling",
     description:
-      "Extracts market data from the CoinGecko API, cleans and normalizes the response with Python, and prepares structured output for CSV or PostgreSQL-based analytics.",
-    tech: ["Python", "Pandas", "SQLAlchemy", "PostgreSQL", "REST API", "ETL"],
-    link: "https://github.com/8shagrid/etl-coingecko-pipeline",
-    linkLabel: "View repository",
+      "Production ERP built for my own multi-unit wedding services business, covering sales, cash flow, budgeting, production, reseller commissions, and audit logs. Designed the operational data structure and reporting flow used to monitor performance across more than 20 modules.",
+    tech: ["PostgreSQL", "Supabase", "Prisma ORM"],
+    link: "#products",
+    linkLabel: "See it in production products",
+    external: false,
   },
   {
     title: "Tokopedia Review Scraper",
-    type: "Market Research / Data Collection",
+    type: "Data Collection",
     description:
       "Collects product reviews, standardizes relative dates, and produces a clean dataset ready for sentiment analysis or e-commerce market research.",
     tech: ["Python", "Web Scraping", "Data Cleaning", "Text Data"],
     link: "https://github.com/8shagrid/tokopedia-review-scraper",
     linkLabel: "View repository",
+    external: true,
   },
   {
     title: "SIBI Sign Language Detection",
-    type: "Machine Learning",
+    type: "Applied Machine Learning",
     description:
       "A computer-vision workflow covering data collection, preprocessing, TensorFlow model training, and real-time inference for SIBI sign-language recognition.",
     tech: ["Python", "TensorFlow", "MediaPipe", "OpenCV", "Jupyter Notebook"],
     link: "https://github.com/8shagrid/sibi-sign-language-detection",
     linkLabel: "View repository",
+    external: true,
   },
 ];
 
@@ -263,16 +296,16 @@ export const skillGroups = [
     ],
   },
   {
-    title: "Data & Product Systems",
+    title: "Analytics Engineering & Systems",
     skills: [
       "PostgreSQL",
       "Supabase",
       "ETL Workflows",
+      "Data Modeling",
       "REST APIs",
       "Recharts",
       "Streamlit",
       "Git",
-      "Data Storytelling",
     ],
   },
 ];
@@ -286,6 +319,17 @@ export interface Experience {
 }
 
 export const experiences: Experience[] = [
+  {
+    period: "Mar 2026 — Present",
+    role: "Founder & Owner",
+    company: "Seraya Wedding Services",
+    location: "Medan, Indonesia",
+    details: [
+      "Building and operating three wedding services units: Seraya Invitation (digital invitations, since Mar 2026), Photobooth by Seraya, and Seraya Wedding Planner (both from Oct 2026).",
+      "Designed the operational processes and data flows that Seraya ERP manages for the business.",
+      "Use the ERP's reporting to monitor sales, cash flow, and unit performance in day-to-day operations.",
+    ],
+  },
   {
     period: "Jul 2024 — Present",
     role: "Freelance Data Analyst",
@@ -395,7 +439,6 @@ export const certifications = [
 
 export const contactData = {
   email: "dirgahalimsusilo@gmail.com",
-  phone: "+628****3590",
   phoneDisplay: "+62 823-6745-3590",
   whatsappPhone: "6282367453590",
   linkedin: "linkedin.com/in/dirgahalimsusilo",
@@ -410,8 +453,8 @@ export const cvData = {
 
 export const navLinks = [
   { label: "Analytics", href: "/#analytics" },
-  { label: "Projects", href: "/#projects" },
-  { label: "Skills", href: "/#skills" },
+  { label: "Engineering", href: "/#engineering" },
+  { label: "Products", href: "/#products" },
   { label: "Experience", href: "/#experience" },
   { label: "Insights", href: "/insights" },
   { label: "Contact", href: "/#contact" },

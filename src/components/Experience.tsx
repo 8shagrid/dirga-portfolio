@@ -14,8 +14,8 @@ export default function Experience() {
     <Section id="experience">
       <SectionHeader
         label={t("Experience")}
-        title={t("Data Experience Across Business & Research")}
-        description={t("Hands-on work translating business questions into cleaned data, analysis, dashboards, and stakeholder-ready findings.")}
+        title={t("Experience Across Business, Data & Research")}
+        description={t("From running a multi-unit business on systems I built to translating business questions into cleaned data, analysis, dashboards, and stakeholder-ready findings.")}
       />
 
       <div className="relative max-w-5xl">

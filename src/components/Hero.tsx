@@ -98,7 +98,7 @@ function AnalysisVisual() {
           </div>
 
           <div className="mt-4 flex flex-wrap gap-1.5">
-            {["SQL", "Python", "Excel", "Power BI", "Tableau"].map((tool) => (
+            {["SQL", "Python", "PostgreSQL", "Excel", "Power BI", "Tableau"].map((tool) => (
               <span
                 key={tool}
                 className="rounded-sm border border-susu/35 bg-sumi px-2 py-1 font-mono text-[9px] text-hai"

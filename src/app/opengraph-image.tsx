@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 
 export const alt =
-  "Dirga Halim Susilo | Data Analyst & Business Intelligence";
+  "Dirga Halim Susilo | Data Analyst & Analytics Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -107,7 +107,7 @@ export default function Image() {
             fontWeight: 400,
           }}
         >
-          Data Analyst & Business Intelligence
+          Data Analyst & Analytics Engineer
         </p>
       </div>
 

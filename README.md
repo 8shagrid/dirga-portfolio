@@ -5,18 +5,20 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
 [![Live Site](https://img.shields.io/badge/Live-dirgahalimsusilo.site-c53030)](https://dirgahalimsusilo.site/)
 
-Production-ready personal portfolio for **Dirga Halim Susilo** — Data Analyst and Business Intelligence professional based in Medan, Indonesia.
+Production-ready personal portfolio for **Dirga Halim Susilo** — Data Analyst and Analytics Engineer based in Medan, Indonesia.
 
 **Live:** [dirgahalimsusilo.site](https://dirgahalimsusilo.site/)
 
 ## Overview
 
-This portfolio positions Dirga as a Data Analyst who turns business questions into prepared data, clear analysis, interactive dashboards, and practical recommendations. Software engineering work remains visible as supporting evidence of strong technical delivery.
+This portfolio positions Dirga as a "Data Analyst who ships": someone who turns business questions into prepared data, clear analysis, and interactive dashboards—and engineers the SQL, Python pipelines, data models, and production systems behind them. Software engineering work remains visible as supporting evidence of strong technical delivery.
 
 ## Highlights
 
-- Recruiter-focused hero with a clear Data Analyst and Business Intelligence position
+- Recruiter-focused hero with a clear Data Analyst and Analytics Engineer position
+- Founder & Owner of a multi-unit wedding services business running on Seraya ERP
 - Three visual analytics case studies with business questions, KPIs, deliverables, tools, and repository links
+- An Analytics Engineering section covering an ETL pipeline, production data modeling, data collection, and applied ML
 - Supporting ETL, data collection, machine learning, and production product experience
 - Responsive single-page experience with smooth anchor navigation
 - Light/dark mode with persisted theme preference
@@ -82,6 +84,7 @@ Most portfolio content lives in `src/lib/data.ts`:
 
 - Hero role, positioning, tagline, stats, and location
 - Analytics case studies, metrics, business questions, and links
+- Analytics engineering feature, pipeline stages, and supporting projects
 - Supporting product/project descriptions and links
 - Skills, experience, education, certifications
 - Contact links and CV URL

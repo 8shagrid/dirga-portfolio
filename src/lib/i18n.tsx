@@ -14,18 +14,18 @@ export type Language = "en" | "id";
 
 const idTranslations: Record<string, string> = {
   Analytics: "Analitik",
-  Projects: "Proyek",
-  Skills: "Keahlian",
+  Engineering: "Rekayasa Data",
+  Products: "Produk",
   Experience: "Pengalaman",
   Insights: "Wawasan",
   Contact: "Kontak",
   "View Resume": "Lihat CV",
-  "Open to Data Analyst and Business Intelligence roles":
-    "Terbuka untuk posisi Data Analyst dan Business Intelligence",
-  "Turning complex data into clear business decisions.":
-    "Mengubah data kompleks menjadi keputusan bisnis yang jelas.",
-  "I analyze business data, build interactive dashboards, and translate findings into practical recommendations using SQL, Python, Excel, Power BI, and Tableau.":
-    "Saya menganalisis data bisnis, membangun dashboard interaktif, dan menerjemahkan temuan menjadi rekomendasi praktis menggunakan SQL, Python, Excel, Power BI, dan Tableau.",
+  "Open to Data Analyst and Analytics Engineering roles":
+    "Terbuka untuk posisi Data Analyst dan Analytics Engineering",
+  "Turning complex data into decisions—and shipping the systems behind them.":
+    "Mengubah data kompleks menjadi keputusan—sekaligus membangun sistem di baliknya.",
+  "I analyze business data, build interactive dashboards, and engineer the SQL, Python pipelines, and production data models that keep reporting reliable.":
+    "Saya menganalisis data bisnis, membangun dashboard interaktif, serta merancang pipeline SQL dan Python serta model data produksi yang menjaga pelaporan tetap andal.",
   "View Analytics Work": "Lihat Karya Analitik",
   Scroll: "Gulir",
   "From raw data to action": "Dari data mentah menuju tindakan",
@@ -106,13 +106,30 @@ const idTranslations: Record<string, string> = {
     "Membaca Data Keselamatan Jalan Lebih dari Sekadar Angka Utama",
   "An analytical framework for moving from a casualty total to patterns across severity, location, road type, and environmental conditions.":
     "Kerangka analitis untuk bergerak dari jumlah korban menuju pola tingkat keparahan, lokasi, jenis jalan, dan kondisi lingkungan.",
-  "Supporting Data Projects": "Proyek Data Pendukung",
-  "Collection, Pipelines & Machine Learning":
-    "Pengumpulan, Pipeline & Machine Learning",
-  "Additional projects that demonstrate how I collect, prepare, store, and model data before it reaches an analysis or dashboard.":
-    "Proyek tambahan yang menunjukkan cara saya mengumpulkan, menyiapkan, menyimpan, dan memodelkan data sebelum digunakan dalam analisis atau dashboard.",
-  "Data Engineering / Analytics": "Data Engineering / Analitik",
-  "Market Research / Data Collection": "Riset Pasar / Pengumpulan Data",
+  "Analytics Engineering": "Analytics Engineering",
+  "Pipelines and Data Models Behind the Dashboards":
+    "Pipeline dan Model Data di Balik Dashboard",
+  "Before a dashboard or analysis is possible, data has to be collected, cleaned, modeled, and stored. This is the engineering layer that keeps reporting reliable.":
+    "Sebelum dashboard atau analisis dibuat, data harus dikumpulkan, dibersihkan, dimodelkan, dan disimpan. Lapisan engineering inilah yang menjaga pelaporan tetap andal.",
+  "ETL & Data Pipelines": "ETL & Pipeline Data",
+  "Pipeline stages": "Tahapan pipeline",
+  Extract: "Ekstraksi",
+  "Market data pulled from the CoinGecko REST API":
+    "Data pasar diambil dari REST API CoinGecko",
+  Transform: "Transformasi",
+  "Response cleaned and normalized with Python and Pandas":
+    "Respons dibersihkan dan dinormalisasi dengan Python dan Pandas",
+  Load: "Load",
+  "Structured output prepared for CSV or PostgreSQL":
+    "Keluaran terstruktur disiapkan untuk CSV atau PostgreSQL",
+  "Relational Data Modeling": "Pemodelan Data Relasional",
+  "Production ERP built for my own multi-unit wedding services business, covering sales, cash flow, budgeting, production, reseller commissions, and audit logs. Designed the operational data structure and reporting flow used to monitor performance across more than 20 modules.":
+    "ERP produksi yang dibangun untuk bisnis wedding services multi-unit milik saya sendiri, mencakup penjualan, arus kas, penganggaran, produksi, komisi reseller, dan audit log. Merancang struktur data operasional dan alur pelaporan yang digunakan untuk memantau kinerja pada lebih dari 20 modul.",
+  "Data Collection": "Pengumpulan Data",
+  "Applied Machine Learning": "Machine Learning Terapan",
+  "See it in production products": "Lihat di produk produksi",
+  "Supporting credential: SQL (Advanced) — HackerRank, Dec 2023":
+    "Kredensial pendukung: SQL (Advanced) — HackerRank, Des 2023",
   "View repository": "Lihat repositori",
   "Extracts market data from the CoinGecko API, cleans and normalizes the response with Python, and prepares structured output for CSV or PostgreSQL-based analytics.":
     "Mengambil data pasar dari API CoinGecko, membersihkan dan menormalisasi respons dengan Python, lalu menyiapkan keluaran terstruktur untuk analitik berbasis CSV atau PostgreSQL.",
@@ -127,10 +144,10 @@ const idTranslations: Record<string, string> = {
   "Analytics contribution": "Kontribusi analitik",
   "Owner & Full-Stack Developer": "Pemilik & Full-Stack Developer",
   "Freelance Full-Stack Developer": "Freelance Full-Stack Developer",
-  "A production ERP for sales, cash flow, budgeting, production, reseller commissions, audit logs, and automated reporting.":
-    "ERP produksi untuk penjualan, arus kas, penganggaran, produksi, komisi reseller, audit log, dan pelaporan otomatis.",
-  "Designed the operational data structure and reporting flow used to monitor business performance across more than 20 modules.":
-    "Merancang struktur data operasional dan alur pelaporan untuk memantau kinerja bisnis pada lebih dari 20 modul.",
+  "A production ERP built for my own multi-unit wedding services business, covering sales, cash flow, budgeting, production, reseller commissions, audit logs, and automated reporting.":
+    "ERP produksi yang dibangun untuk bisnis wedding services multi-unit milik saya sendiri, mencakup penjualan, arus kas, penganggaran, produksi, komisi reseller, audit log, dan pelaporan otomatis.",
+  "Designed the operational data structure and reporting flow used by the business to monitor performance across more than 20 modules.":
+    "Merancang struktur data operasional dan alur pelaporan yang digunakan bisnis untuk memantau kinerja pada lebih dari 20 modul.",
   "An online SKD practice platform with CAT-style scoring, timed exams, payment integration, and performance reporting.":
     "Platform latihan SKD online dengan penilaian bergaya CAT, ujian berbatas waktu, integrasi pembayaran, dan laporan kinerja.",
   "Built score summaries and visual reporting that help learners review section-level results and track readiness.":
@@ -148,11 +165,19 @@ const idTranslations: Record<string, string> = {
     "Perangkat terfokus untuk mengubah informasi mentah menjadi analisis yang andal, dashboard yang mudah dipahami, dan rekomendasi yang jelas.",
   "Analysis & Business Intelligence": "Analisis & Business Intelligence",
   "Programming & Statistics": "Pemrograman & Statistika",
-  "Data & Product Systems": "Sistem Data & Produk",
-  "Data Experience Across Business & Research":
-    "Pengalaman Data dalam Bisnis & Riset",
-  "Hands-on work translating business questions into cleaned data, analysis, dashboards, and stakeholder-ready findings.":
-    "Pengalaman langsung menerjemahkan pertanyaan bisnis menjadi data bersih, analisis, dashboard, dan temuan yang siap disampaikan kepada pemangku kepentingan.",
+  "Analytics Engineering & Systems": "Analytics Engineering & Sistem",
+  "Experience Across Business, Data & Research":
+    "Pengalaman di Bidang Bisnis, Data & Riset",
+  "From running a multi-unit business on systems I built to translating business questions into cleaned data, analysis, dashboards, and stakeholder-ready findings.":
+    "Dari menjalankan bisnis multi-unit di atas sistem yang saya bangun hingga menerjemahkan pertanyaan bisnis menjadi data bersih, analisis, dashboard, dan temuan yang siap disampaikan kepada pemangku kepentingan.",
+  "Founder & Owner": "Founder & Pemilik",
+  "Mar 2026 — Present": "Mar 2026 — Sekarang",
+  "Building and operating three wedding services units: Seraya Invitation (digital invitations, since Mar 2026), Photobooth by Seraya, and Seraya Wedding Planner (both from Oct 2026).":
+    "Membangun dan menjalankan tiga unit bisnis wedding services: Seraya Invitation (undangan digital, sejak Mar 2026), Photobooth by Seraya, dan Seraya Wedding Planner (keduanya mulai Okt 2026).",
+  "Designed the operational processes and data flows that Seraya ERP manages for the business.":
+    "Merancang proses operasional dan alur data yang dikelola Seraya ERP untuk bisnis ini.",
+  "Use the ERP's reporting to monitor sales, cash flow, and unit performance in day-to-day operations.":
+    "Menggunakan pelaporan ERP untuk memantau penjualan, arus kas, dan kinerja unit dalam operasional harian.",
   "Freelance Data Analyst": "Freelance Data Analyst",
   "Data Scientist Intern": "Magang Data Scientist",
   "HR Data Analyst Intern": "Magang HR Data Analyst",
@@ -215,8 +240,8 @@ const idTranslations: Record<string, string> = {
     "Sertifikasi SQL, analitik data, machine learning, dan deep learning dari platform pembelajaran tepercaya.",
   Availability: "Ketersediaan",
   "Let’s Discuss a Data Role": "Mari Diskusikan Peran di Bidang Data",
-  "Open to Data Analyst and Business Intelligence opportunities where clear analysis, practical dashboards, and business communication matter.":
-    "Terbuka untuk peluang Data Analyst dan Business Intelligence yang membutuhkan analisis jelas, dashboard praktis, dan komunikasi bisnis.",
+  "Open to Data Analyst and Analytics Engineering opportunities where clear analysis, practical dashboards, and reliable data systems matter.":
+    "Terbuka untuk peluang Data Analyst dan Analytics Engineering yang membutuhkan analisis jelas, dashboard praktis, dan sistem data yang andal.",
   Phone: "Telepon",
   Website: "Situs Web",
   "Introduce the opportunity": "Perkenalkan peluangnya",
